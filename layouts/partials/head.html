@@ -41,9 +41,7 @@
   <noscript>
     <style>.script { display: none; visibility: hidden }</style>
   </noscript>
-  {{ if .Scratch.Get "hasTwic" -}}
   <script src="https://{{- .Site.Params.twic -}}.twic.pics/?v1" async defer></script>
-  {{- end -}}
   {{- if .Store.Get "hasCode" -}}
   <script src="/scripts/prism-{{- .Site.Params.Version -}}.min.js" async></script>
   {{- end -}} 

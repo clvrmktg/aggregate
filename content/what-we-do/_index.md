@@ -46,7 +46,7 @@ description = ''
     name = 'Horizontal Construction'
     description = 'From highways to driveways, our asphalt paving services are second to none. Using advanced techniques and premium materials, we create smooth, durable surfaces that withstand heavy traffic and adverse weather conditions. Our commitment to quality ensures the longevity and functionality of every paved surface we deliver.'
     [services.service.image]
-      path = 'bullock-harbour-road-paving-01.jpg'
+      path = 'bullock-harbour-road-paving-019.jpg'
       alt = 'Concrete foundation poured by Abaco Aggregate'
 
   [[services.service]]
