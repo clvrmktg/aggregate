@@ -16,7 +16,7 @@
   <meta name="robots" content="noindex">
   <meta name="googlebot" content="noindex">
   {{- end -}}
-  {{- if .Scratch.Get "hasTwic" }}
+  {{- if .Scratch.Get "hasTwic" -}}
   <link rel="preconnect" href="https://{{- .Site.Params.twic -}}.twic.pics/?v1">
   <link rel="preload" href="https://{{- .Site.Params.twic -}}.twic.pics/?v1" as="script">
   {{- end }}
