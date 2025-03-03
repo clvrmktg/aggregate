@@ -16,10 +16,8 @@
   <meta name="robots" content="noindex">
   <meta name="googlebot" content="noindex">
   {{- end -}}
-  {{- if .Store.Get "hasTwic" -}}
   <link rel="preconnect" href="https://{{- .Site.Params.twic -}}.twic.pics/?v1">
   <link rel="preload" href="https://{{- .Site.Params.twic -}}.twic.pics/?v1" as="script">
-  {{- end }}
   {{- with resources.Get "styles/style.sass" -}}
     {{- $opts := dict
       "enableSourceMap" (not hugo.IsProduction)
