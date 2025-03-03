@@ -1,0 +1,47 @@
+{{- define "main" -}}
+{{- .Scratch.Set "hasTwic" true -}}
+{{- partial "partials/hero.html" . -}}
+<div class="[ layout--sidebar--right ][ grid gap--2 layout--padding--bottom ]">
+  <div>
+    <p>Need to talk to us? Fill out the contact form and we'll get back to you as soon as possible.</p>
+    
+    <form class="[ grid gap--1 ]" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
+    
+      <div class="[ form__field ][ grid row-gap--0.5 ]" x-data="{value: &quot;&quot;}">
+        <label class="[ form__label ][ font--500 font--600 ]" for="name">Name
+          <abbr class="[ required ]" title="This field is required" aria-label="This field is required">*</abbr>
+        </label>
+        <input class="[ form__input ][ p--0.5 ]" name="name" id="name" type="text" placeholder="Your Name" required="" :class="{&quot;has-value&quot;: value.length &gt; 0 }" x-model="value" minlength="2" maxlength="50"/>
+      </div>
+      <div class="[ form__field ][ grid row-gap--0.5 ]" x-data="{value: &quot;&quot;}">
+        <label class="[ form__label ][ font--500 font--600 ]" for="email">Email<abbr class="[ required ]" title="This field is required" aria-label="This field is required">*</abbr>
+        </label>
+        <input class="[ form__input ][ p--0.5 ]" name="email" id="email" type="email" placeholder="my@email.com" required="" :class="{&quot;has-value&quot;: value.length &gt; 0 }" x-model="value"/>
+      </div>
+      <div class="[ form__field ][ grid row-gap--0.5 ]" x-data="{value: &quot;&quot;}">
+        <label class="[ form__label ][ font--500 font--600 ]" for="message">Message<abbr class="[ required ]" title="This field is required" aria-label="This field is required">*</abbr>
+        </label>
+        <textarea class="[ form__message ][ p--0.5 ]" name="message" id="message" placeholder="Tell us how we can help..." required="" :class="{&quot;has-value&quot;: value.length &gt; 0 }" x-model="value" maxlength="3000"></textarea>
+      </div>
+
+      <div class="[ flex end ]">
+        <button class="[ btn btn--solid--lg aac--black ][ md:w--100 ]">Send</button>
+      </div>
+    </form>
+  </div>
+  <aside class="[ sidebar ]">
+    <address class="[ pb--2 ]">
+      <span>Abaco Aggregate &amp; Cement Ltd.</span>
+      <br>
+      <span>Airport Road</span>
+      <br>
+      <span>Marsh Harbour, AB</span>
+      <br>
+      <span>Bahamas</span>
+    </address>
+    <div>
+      <template obscure="obscure" data-p1="+1" data-p2="242" data-p3="813" data-p4="7981"><a href="tel:%1%2%3%4">(%2) %3 %4</a></template>
+    </div>
+  </aside>
+</div>
+{{- end -}}

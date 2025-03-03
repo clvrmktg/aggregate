@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html id="page" lang="{{ .Site.LanguageCode }}" prefix="og: https://ogp.me/ns#">
+  {{ partial "head.html" . }}
+  <body>
+    <div class="[ container ]">
+      <a class="screen-reader-text" href="#main">Skip to main content</a>
+      {{ $currentPage := . }}
+      {{ partial "navbar.html" (dict "context" . "currentPage" $currentPage) }}
+      <main class="[ main ][ full-width content-grid {{if .Scratch.Get "padding"}}layout--padding{{end}} layout--spacing ]{{- if eq .Page.Kind "404" -}}[ error ]{{- end -}}" id="main">
+        {{- block "main" . -}}{{- end -}}
+      </main>
+      {{- partial "footer.html" (dict "context" . "currentPage" $currentPage) -}}
+    </div>
+    {{partial "script.html" (dict "path" "scripts/components/prefetch.js" "targetPath" "scripts/prefetch.js")}}
+    {{- if or .IsHome ( .Store.Get "hasObscure" ) }}
+    {{ partial "script.html" (dict "path" "scripts/components/obscure.js" "targetPath" "scripts/obscure.js") }}
+    {{- end -}}
+    {{- if .Store.Get "project" -}}
+    {{ partial "script.html" (dict "path" "scripts/vendor/lightgallery.js" "targetPath" "scripts/lightgallery.js") }}
+    {{end}}
+  </body>
+</html>

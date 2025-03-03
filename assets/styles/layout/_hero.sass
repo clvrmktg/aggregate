@@ -1,0 +1,74 @@
+@use '../abstracts' as *
+
+.hero
+  +clamp(min-height, 450, 650)
+  grid-template-rows: [bg-start] 1fr [wrapper-start] em(20) [bg-end] max-content [wrapper-end]
+
+  // > *
+  //   outline: $bg
+
+  &__background
+    min-height: inherit
+    background-color: color('black-5')
+    grid-row: bg
+
+  > .wrapper
+    grid-row: wrapper
+    z-index: 1
+
+    +breakpoint(tablet)
+      > div
+        grid-template-columns: max-content 1fr
+        align-items: center
+    
+    &--subpage
+      +device(phone)
+        > div
+          grid-column: full-width
+
+  &--home
+    height: 100svh
+    max-height: calc(100svh - var(--height))
+    background-color: color('black-5')
+    position: relative
+
+    @supports not (height: 100svh)
+      height: 100vh
+      max-height: calc(100vh - var(--height))
+
+    > .wrapper
+      height: 100%
+      color: color('white')
+    
+
+    h2
+      color: color('aac-gold')
+
+.title
+  color: color('aac-gold')
+  background-color: color('black')
+
+.cta
+  +breakpoint(tablet)
+    grid-template-columns: repeat(2, max-content) 1fr
+
+.video-bg
+  min-width: 100%
+  min-height: 100%
+  height: 100%
+  max-height: 100%
+  position: absolute
+  top: 0
+  left: 0
+  z-index: -1
+  object-fit: cover
+
+
+div[data-section]::after
+  content: attr(data-section)
+
+.bg
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  background-blend-mode: soft-light

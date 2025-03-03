@@ -1,0 +1,81 @@
+@use 'abstracts' as *
+  
+.footer
+  color: var(--white)
+  background-color: var(--black)
+  
+  a
+    color: var(--white)
+
+    > svg
+      fill: var(--white)
+
+    +hover
+      color: var(--aac-gold)
+
+.wrapper
+
+  &--footer
+    +device(desktop)
+      grid-template-columns: [summary-start] max-content [summary-end] 1fr [navigation-start] max-content [navigation-end]
+      grid-template-rows: [summary-start navigation-start] max-content [navigation-end summary-end]
+
+
+.logo-slogan
+
+  +device(desktop)
+    grid-area: summary
+    grid-template-columns: [logo-start] max-content [logo-end slogan-start] max-content [slogan-end]
+    grid-template-rows: [logo-start] 1fr [slogan-start] max-content [slogan-end] 1fr [logo-end]
+
+    > .logo
+      grid-area: logo
+
+.slogan
+  +device(desktop)
+    grid-area: slogan
+
+.navigation--footer
+  
+  +device(desktop)
+    grid-area: navigation
+
+.menu--footer__link
+  color: inherit
+  position: relative
+  +transition((color, opacity))
+
+  +breakpoint(tablet)
+    &::before
+      content: ''
+      width: em(4)
+      height: 100%
+      background-color: var(--aac-gold)
+      position: absolute
+      top: 5%
+      left: em(-15)
+      opacity: 0
+
+    +hover
+      color: var(--aac-gold)
+
+      &::before
+        opacity: 1
+
+    &.current
+      color: var(--aac-gold)
+      
+      &::before
+        opacity: 1
+
++breakpoint(tablet)
+  .copy
+    
+    br
+      display: none
+
+.line
+  background: color('grey')
+  height: 0.1em
+
+

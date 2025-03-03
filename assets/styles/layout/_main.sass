@@ -1,0 +1,159 @@
+@use '../abstracts' as *
+
+.container
+  display: grid
+  grid-template-rows: [ navbar-start ] max-content [ navbar-end main-start ] 1fr [main-end footer-start] max-content [footer-end]
+  +svh(min-height, 100)
+
+.navbar
+  grid-row: navbar
+
+.main
+  grid-row: main
+
+.footer
+  grid-row: footer
+
+
+// https://ryanmulligan.dev/blog/layout-breakouts/
+
+.content-grid
+  --padding-inline: 2em
+  --content-max-width: #{rem(1152)}
+  --breakout-max-width: #{rem(1200)}
+
+  --content-size: min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2)
+  
+  display: grid
+  grid-template-columns: [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] var((--content-size)) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end]
+  
+  > .breakout
+    grid-column: breakout
+
+  > .full-width
+    grid-column: full-width
+
+.content-grid, .full-width
+
+  > :not(.breakout, .full-width)
+    grid-column: content
+
+.layout
+
+  &--sidebar
+
+    +breakpoint(desktop)
+      &--left
+        grid-template-columns: minmax(max-content, 20%) 1fr
+        grid-template-areas: 'b . a'
+
+      &--right
+        grid-template-columns: minmax(#{em(200)}, #{em(800)}) 1fr minmax(em(200), 1fr)
+        grid-template-areas: 'a . b'
+
++breakpoint(desktop)
+      
+  .content
+    grid-area: a
+
+  .sidebar
+    grid-area: b
+    padding-top: em(27)
+
+
+
+$min-spacing: 3 * 16
+$max-spacing: 5 * 20
+
+.layout--spacing
+  +clamp(row-gap, $min-spacing, $max-spacing)
+
+.layout--padding
+  +clamp(padding-top, $min-spacing, $max-spacing)
+  +clamp(padding-bottom, $min-spacing, $max-spacing)
+
+.layout--padding--bottom
+  +clamp(padding-bottom, $min-spacing, $max-spacing)
+
+.screen-reader-text
+  
+  position: absolute
+
+  //Positions the link absolutely on the page, allowing it to be placed anywhere.
+  left: -9999px
+
+  //Moves the link far off-screen to the left, making it invisible to sighted users.
+  z-index: 999
+
+  //Sets a high z-index, ensuring that the link will be on top of other page elements if it becomes visible.
+  padding: 1em
+  background-color: black
+  color: white
+  opacity: 0
+
+  //Sets the link's opacity to 0, making it fully transparent and invisible.
+
+  &:focus
+    left: 50%
+
+    // When the link receives focus (e.g., when a keyboard user tabs to it), it is repositioned horizontally to the centre of the screen.
+    transform: translateX(-50%)
+
+    //This centres the link horizontally by moving it back to the left by 50% of its own width.
+    opacity: 1
+
+    //The link's opacity is set to 1, making it fully visible.
+
+
++padding(0, 'x', 'md')
++padding(0.25, 'x', 'md')
++padding(0.25,'y', 'md')
++padding(0.5)
++padding(0.5,'x')
++padding(0.5,'y')
++padding(0.75,'y')
++padding(1, 'y')
++padding(1, 'top')
++padding(5, 'y')
++padding(2)
++padding(2, 'x')
++padding(2,'bottom')
++padding(2, 'x', 'md')
++padding(0.5, 'x', 'md')
++padding(5,'bottom')
++gap(1)
++gap(2)
++gap(4)
++col-gap(1)
++col-gap(2)
++col-gap(4)
++row-gap(0.5)
++row-gap(1)
++col(2, 'md')
++col(3, 'md')
++col(3, 'lg')
++col(4, 'lg')
+
++order(1)
++order(1, 'md')
++order(2)
++order(2, 'md')
+
++ch(45)
+
++wide(750)
++wide(800)
+
+.text--center
+  text-align: center
+
++font(500)
+
++ratio(1, 1)
+
++ratio(4, 5, 'md')
++ratio(4, 5, 'lg')
+
++ratio(16, 9)
++ratio(16, 9, 'lg')

@@ -1,0 +1,79 @@
+{{- define "main" -}}
+  {{- .Scratch.Set "hasTwic" true -}}
+  {{- partial "partials/hero.html" . -}}
+  {{- $twic := .Site.Params.twic -}}
+  <div class="[ full-width content-grid layout--spacing layout--padding--bottom ]">
+    <section class="[ summary ][ grid layout--spacing text--center ]">
+      <div>
+        <h2>Products And Services</h2>
+        <p class="[ font--3 font--500 ]">Discover our comprehensive range of construction solutions, from high-quality {{ .Site.Params.twic }}s to expert asphalt paving and responsible waste management. Building better, together.</p>
+      </div>
+      <ul class="[ products ][ grid md:col--3 col-gap--2 ]">
+        {{ $services := .Params.services.service }}
+        {{range $index, $service := $services }}
+        {{ $counter := add $index 1 }}
+        <li class="[ product ][ grid row-gap--1 text--center ]">
+          <h3>{{ .name }}</h3>
+          <p>{{ .description }}</p>
+          <figure class="[ ratio--16:9 ]">
+            {{ with $.Page.Resources.GetMatch .image.path }}
+            <picture id="product-{{ $counter }}" class="[ bg ]">
+              <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+              <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="{{ $service.image.alt }}" width="{{ $service.Width }}" height="{{ $service.Height }}"/>
+              <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" alt="{{ $service.image.alt }}" width="{{ $service.Width }}" height="{{ $service.Height }}"/></noscript>
+            </picture>
+            {{ end }}
+          </figure>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+    <section class="[ snapshot ][ full-width content-grid ]">
+      <div class="[ wrapper ][ py--5 ]">
+        <div class="[ grid md:col--2 middle gap--2 ]">
+          <div class="[ o--2 ]">
+            <h2>Discover our story...</h2>
+            {{ .Content }}
+            <a class="[ btn btn--solid--lg aac--gold ]" href="/who-we-are">Learn More <span class="[ hidden ]">About Who We Are</span></a>
+          </div>
+          <figure class="[ ratio--1:1 md:ratio--4:5 o--1 ]">
+            <picture id="snapshot" class="[ bg ]">
+              {{ $snapshot := .Params.snapshot }}
+              {{ with .Resources.GetMatch $snapshot.image }}
+              <style>#snapshot {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+              <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="{{ $snapshot.alt }}"/>
+              <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/" alt="{{ $snapshot.alt }}"/></noscript>
+              {{ end }}
+            </picture>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="[ projects ][ grid gap--2 ]">
+      <h2>Projects</h2>
+      {{ $counter := 0 }}
+      {{ $projects := where .Site.RegularPages "Section" "projects" | first 2 }}
+      {{ range $projects }}
+      {{ $counter = add $counter 1 }}
+      <a id="feature--{{ $counter }}" class="[ feature feature--{{ $counter }} ][ grid ratio--1:1 lg:ratio--4:5 ]" href="{{ .RelPermalink }}">
+        <div class="[ feature__title ][ px--2 ]">
+          <h3 class="[ py--0.5 ]">{{ .Title }}</h3>
+        </div>
+        {{ $title := .Title }}
+        {{ with .Resources.GetMatch .Params.hero.image }}
+        <figure class="[ feature__img ][ ratio--1:1 lg:ratio--4:5 scale o--1 ]">
+          <picture id="project-{{ $counter }}" class="[ bg ]">
+            <style>#project-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+            <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="Work from our {{ $title }} project"/>
+            <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" alt="Work from our {{ $title }} project"/></noscript>
+          </picture>
+        </figure>
+        {{ end }}
+      </a>
+      {{ end }}
+      <div class="[ sm:flex end ]">
+        <a class="[ btn btn--solid--lg aac--black ]" href="/projects/">More Projects</a>
+      </div>
+    </section>
+  </div>
+{{- end -}}

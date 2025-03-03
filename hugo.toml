@@ -1,0 +1,66 @@
+baseURL = 'https://abacoaggregate.net/'
+languageCode = 'en-us'
+title = 'Abaco Aggregate & Cement, Ltd.'
+
+
+[ params ]
+  version = "1738220434631"
+  twic = "clvrmktg"
+  share = "/uploads/joseph-pinder-share.jpg"
+  logo = "/uploads/joseph-pinder-logo.png"
+  # Facebook App ID
+  app_id = "223848628924279"
+  error = true
+
+[menu]
+  # [[menu.main]]
+  #   identifier = "home"
+  #   name = "Home"
+  #   url = "/"
+  #   weight = 1
+  #   pre = "<i class='icon-home'></i>"  # Optional icon
+  #   post = ""  # Optional
+  #   parent = ""  # For nested menus
+
+  [[menu.main]]
+    identifier = "about"
+    name = "Who We Are"
+    url = "/who-we-are/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "services"
+    name = "What We Do"
+    url = "/what-we-do/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 4
+
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact Us"
+    url = "/contact-us/"
+    weight = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = true
+
+    # Links
+    [markup.goldmark.renderHooks]
+      [markup.goldmark.renderHooks.link]
+        enableDefault = true        
+
+enableGitInfo = true
+
+[sitemap]
+  filename = "sitemap"  # Remove .xml
+  changefreq = "monthly"
+  priority = 0.5

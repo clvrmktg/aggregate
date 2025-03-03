@@ -1,0 +1,45 @@
+{{- if .IsHome -}}
+<header class="[ hero hero--home ][ full-width ]">
+  <h1 class="[ hidden ]">{{ .Site.Title }}</h1>
+
+    <div class="[ wrapper ][ full-width content-grid middle layout-spacing py--5 ]">
+      <div>
+        <h2 class="[ font--1 ]">The Bahamas' Premier <br>Civil Contractor</h2>
+        <p class="[ ch--45 color--white ]">We partner with private and public entities to build sustainable projects that make it better in The Bahamas. </p>
+        <div class="[ cta ][ grid col-gap--1 ]">
+          <a class="[ btn btn--solid--lg aac--gold ]" href="/what-we-do" data-prefetch>What We Do </a>
+          <a class="[ btn btn--ghost--lg aac--gold--ghost ]" href="/contact-us" data-prefetch>Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  <video class="[ video-bg ]" src="https://res.cloudinary.com/abaco-aggregate/video/upload/q_auto/aac-hero-bg_mcm8ye.mp4" data-poster="https://abacoaggregate.net/uploads/concrete-mixer-operator.jpg" preload="auto" autoplay muted loop playsinline></video>
+</header>
+{{- else -}}
+<header class="[ hero ][ full-width content-grid ]">
+  {{- $twic := .Site.Params.twic -}}
+  {{ with .Resources.GetMatch (.Params.hero.image) }}
+  <div class="[ hero__background ][ full-width bg ]" data-twic-background="url(image:{{ .RelPermalink }})">
+    <style>.hero__background {background-image: url('https://{{- $twic -}}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+  </div>
+  {{ end }}
+  <div class="[ wrapper wrapper--subpage ][ full-width content-grid ]">
+    <div class="[ grid col-gap--1 ]">
+      <div class="[ title ][ p--2 ]">
+        <h1>{{ .Title }}</h1>
+      </div>
+      <nav class="[ breadcrumbs ][ px--2 md:px--0 ]" aria-label="Breadcrumb">
+        <ol class="[ flex ][ col-gap--1 py--0.5 ]">
+          {{- range .Ancestors -}}
+          <li class="[ breadcrumb ]">
+            <a class="[ breadcrumb__link ]" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          </li>
+          {{- end -}}
+          <li class="[ breadcrumb ][ font--700 ]" aria-current="page">
+            <a class="[ breadcrumb__link--last ]" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</header>
+{{- end -}}

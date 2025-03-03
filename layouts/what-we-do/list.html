@@ -1,0 +1,50 @@
+{{- define "main" -}}
+{{- .Scratch.Set "hasTwic" true -}}
+{{- partial "partials/hero.html" . -}}
+  <ul class="[ products ][ grid md:col--3 gap--2 ]">
+    {{ $twic := .Site.Params.twic }}
+    {{ $products := .Params.products.product }}
+    {{range $index, $product := $products }}
+    {{ $counter := add $index 1 }}
+    <li class="[ product ][ grid row-gap--1 ]">
+      <h3>{{ .name }}</h3>
+      <p>{{ .description }}</p>
+      <figure class="[ ratio--16:9 ]">
+        {{ with $.Page.Resources.GetMatch .image.path }}
+        <picture id="product-{{ $counter }}" class="[ bg ]">
+          <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+          <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt=""/>
+          <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview" alt=""/></noscript>
+        </picture>
+        {{ end }}
+      </figure>
+    </li>
+    {{ end }}
+  </ul>
+  <ul class="[ services ][ grid layout--spacing layout--padding--bottom ]">
+    {{ $services := .Params.services.service }}
+    {{ $parent := .CurrentSection }}
+    {{ range $index, $service := $services }}
+    {{ $counter := add $index 1 }}
+    <li class="[ service ][ grid md:col--2 middle gap--2 ]">
+      <div class="[ o--2{{ if not (modBool $index 2) }} md:o--1{{ end }} ]">
+        <div>
+          <h2>{{ .name }}</h2>
+          <p>{{ .description }}{{ if not (modBool $index 2) }}{{ $index }}{{end}}</p>
+        </div>
+      </div>
+      
+    
+      <figure class="[ service__img ][ ratio--1:1 scale o--1{{ if not (modBool $index 2) }} md:o--2{{ end }} ]">
+        {{ with $.Page.Resources.GetMatch .image.path }}
+        <picture id="product-{{ $counter }}" class="[ bg ]">
+          <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+          <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt=""/>
+          <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview" alt=""/></noscript>
+        </picture>
+        {{ end }}
+      </figure>
+    </li>
+    {{ end }}
+  </ul>
+{{- end -}}

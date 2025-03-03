@@ -1,0 +1,9 @@
+{{- define "main" -}}
+{{- .Scratch.Set "hasTwic" true -}}
+{{- partial "partials/hero.html" . -}}
+<div class="[ full-width content-grid layout--spacing layout--padding--bottom ]">
+  <article class="[ x--800 ]">
+    {{ .Content }}
+  </article>
+</div>
+{{- end -}}

@@ -1,0 +1,26 @@
+<footer class="[ footer ][ full-width content-grid py--5 ]">
+  <div class="[ wrapper wrapper--footer ][ grid gap--4 pb--2 ]">
+    <div class="[ logo-slogan ][ grid col-gap--2 row-gap--1 ]">
+      <a class="[ logo ][ flex middle mb--1 ]" href="/" aria-label="Homepage">
+        {{- readFile "static/icons/logo.svg" | safeHTML }}
+      </a>
+      <div class="[ slogan ]">
+        <p class="[ pb--0 ]">Building Dreams, <br>Strengthening Communities</p>
+      </div>
+    </div>
+    <nav class="[ navigation--footer ][ flex middle ]">
+      <ul class="[ menu--footer ][ grid md:col--2 col-gap--4 row-gap--1 ]">
+        {{- $context := .context -}}
+        {{- $currentPage := .currentPage -}}
+        {{with $context}}
+          {{ range .Site.Menus.main }}
+        <li class="[ menu--footer__item ][ font--500 ]">
+          <a class="[ menu--footer__link link--footer ]{{ if eq $.currentPage.RelPermalink .URL }}[ current ]{{ end }}" href="{{ .URL }}" {{ if eq $.currentPage.RelPermalink .URL }}aria-current="page"{{ end }} data-prefetch>{{ .Name }}</a>
+        </li>
+        {{ end }}
+        {{end}}
+      </ul>
+    </nav>
+  </div>
+  <div class="[ copy ][ x--wide sm:flex between middle ]"><small>© 2024 Abaco Aggregate &amp; Cement, Ltd. All rights reserved. </small><br><small><a href="/privacy-policy">Privacy Policy</a></small></div>
+</footer>
