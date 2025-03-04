@@ -59,22 +59,13 @@
     > .feature
 
       &__title
-        background-color: color('black')
+        background-color: color('black-5')
 
         > h3
           color: color('aac-gold')
 
-  //     +device(desktop)
-  //       background-color: color('black-5')
-
-  //       > h3
-  //         color: color('aac-gold')
-
-
-  //   > .scale
-
-  //     > img
-  //       scale: 1.2
+    > .scale > picture > img
+      scale: 1.2
 
 // +device(desktop)
 //   .previews
@@ -116,12 +107,12 @@
     font-size: var(--step-2)
 
 .scale
-  overflow: hidden
+  > picture 
+    overflow: hidden
 
-  > img
-    +transition(scale)
-    transition-duration: 1000ms
-    scale: 1
+    > img
+      scale: 1
+      +transition(scale)
 
-    +hover
-      scale: 1.2
+      +hover
+        scale: 1.2

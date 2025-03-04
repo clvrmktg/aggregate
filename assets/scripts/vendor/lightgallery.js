@@ -1,11 +1,12 @@
 // Open the Modal
 const modal = document.getElementById("modal");
+const container = document.getElementById("container");
 const body = document.body; // Select the body element
 
 function openModal() {
     modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false");
-    body.style.overflow = 'hidden'; // Prevent scrolling on the background
+    html.setAttribute("style", "overflow: hidden");
 }
 
 // Close the Modal
@@ -18,7 +19,8 @@ close.onclick = function() {
 function closeModal() {
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
-    body.style.overflow = ''; // Re-enable scrolling on the background
+    html.removeAttribute("style");
+
 }
 
 // Next/previous controls

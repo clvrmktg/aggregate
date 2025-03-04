@@ -35,7 +35,7 @@
       </div>
       
     
-      <figure class="[ service__img ][ ratio--1:1 scale o--1{{ if not (modBool $index 2) }} md:o--2{{ end }} ]">
+      <figure class="[ service__img ][ ratio--1:1 o--1{{ if not (modBool $index 2) }} md:o--2{{ end }} ]">
         {{ with $.Page.Resources.GetMatch .image.path }}
         <picture id="product-{{ $counter }}" class="[ bg ]">
           <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>

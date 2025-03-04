@@ -2,8 +2,8 @@
 <html id="page" lang="{{ .Site.LanguageCode }}" prefix="og: https://ogp.me/ns#">
   {{ partial "head.html" . }}
   <body>
-    <div class="[ container ]">
-      <a class="screen-reader-text" href="#main">Skip to main content</a>
+    <a class="screen-reader-text" href="#main">Skip to main content</a>
+    <div id="container" class="[ container ]">
       {{ $currentPage := . }}
       {{ partial "navbar.html" (dict "context" . "currentPage" $currentPage) }}
       <main class="[ main ][ full-width content-grid {{if .Scratch.Get "padding"}}layout--padding{{end}} layout--spacing ]{{- if eq .Page.Kind "404" -}}[ error ]{{- end -}}" id="main">
