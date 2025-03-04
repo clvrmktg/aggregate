@@ -2,6 +2,7 @@
 @use 'sass:math'
 @use 'sass:map'
 @use 'sass:meta'
+@use 'sass:color'
 @use 'variables' as *
 @use 'functions' as *
 
@@ -365,12 +366,13 @@
       order: $value
 
 =hsl($name, $color)
-  --#{$name}: hsl(#{hue($color)}, #{saturation($color)}, #{lightness($color)})
-  --#{$name}-with-fallback: var(--#{$name}, rgb(#{red($color)}, #{green($color)}, #{blue($color)}))
+  --#{$name}: hsl(#{color.channel($color, "hue", $space: hsl)}, #{color.channel($color, "saturation", $space: hsl)}, #{color.channel($color, "lightness", $space: hsl)})
+  --#{$name}-with-fallback: var(--#{$name}, rgb(#{color.channel($color, "red", $space: rgb)}, #{color.channel($color, "green", $space: rgb)}, #{color.channel($color, "blue", $space: rgb)}))
 
 =hsla($name, $color, $alpha)
-  --#{$name}-#{$alpha}: hsla(#{hue($color)}, #{saturation($color)}, #{lightness($color)}, #{$alpha * 10%})
-  --#{$name}-#{$alpha}-with-fallback: var(--#{$name}-#{$alpha}, rgba(#{red($color)}, #{green($color)}, #{blue($color)}, #{math.div($alpha, 10)}))
+  --#{$name}-#{$alpha}: hsla(#{color.channel($color, "hue", $space: hsl)}, #{color.channel($color, "saturation", $space: hsl)}, #{color.channel($color, "lightness", $space: hsl)}, #{$alpha * 10%})
+  --#{$name}-#{$alpha}-with-fallback: var(--#{$name}-#{$alpha}, rgba(#{color.channel($color, "red", $space: rgb)}, #{color.channel($color, "green", $space: rgb)}, #{color.channel($color, "blue", $space: rgb)}, #{math.div($alpha, 10)}))
+
 
 =ch($value)
   .ch--#{$value}
