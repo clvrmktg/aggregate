@@ -2,7 +2,7 @@
 date = '2025-03-01T19:31:17-05:00'
 draft = false
 title = 'What We Do'
-description = ''
+description = "Learn more about Abaco Aggregate and Cement Ltd.'s expert construction solutions, including high-quality sand, rock, fill, cement, paving, and debris management—built for durability across The Bahamas."
 
 [ hero ]
   image = 'bullock-harbour-road-paving-022.jpg'

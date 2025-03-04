@@ -14,7 +14,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": {{ .Title }},
+    "name": "{{ .Title }}",
     "description": {{ .Description }},
     "publisher": {
       "@type": "Person",
@@ -31,7 +31,7 @@
     "name": {{ .Title }},
     "description": {{ .Description }},
     "datePublished": "{{ .Date.Format $iso }}",
-    "dateModified": {{ (.GitInfo.AuthorDate | default .Date) | time.Format $iso }},
+    "dateModified": {{ (.Lastmod | default .Date) | time.Format $iso }},
     "author": {
       "@type": "Person",
       "name": {{ .Site.Title }}

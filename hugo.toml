@@ -6,8 +6,8 @@ title = 'Abaco Aggregate & Cement, Ltd.'
 [ params ]
   version = "1738220434631"
   twic = "aggregate"
-  share = "/uploads/joseph-pinder-share.jpg"
-  logo = "/uploads/joseph-pinder-logo.png"
+  share = "/aac-logo.jpg"
+  logo = "/aac-logo.png"
   # Facebook App ID
   app_id = "223848628924279"
   error = true
