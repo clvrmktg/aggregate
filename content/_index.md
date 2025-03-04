@@ -2,6 +2,7 @@
 date = '2025-03-01T19:32:51-05:00'
 draft = false
 title = 'Home'
+description = 'Abaco Aggregate and Cement Ltd. is your premier construction partner in The Bahamas. Founded in 2020, we specialize in delivering top-quality aggregate and construction services.'
 
 [services]
 

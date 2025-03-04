@@ -55,7 +55,7 @@
       {{ $projects := where .Site.RegularPages "Section" "projects" | first 2 }}
       {{ range $projects }}
       {{ $counter = add $counter 1 }}
-      <a id="feature--{{ $counter }}" class="[ feature feature--{{ $counter }} ][ grid ratio--1:1 lg:ratio--4:5 ]" href="{{ .RelPermalink }}">
+      <a id="feature--{{ $counter }}" class="[ feature feature--{{ $counter }} ][ grid ]" href="{{ .RelPermalink }}">
         <div class="[ feature__title ][ px--2 ]">
           <h3 class="[ py--0.5 ]">{{ .Title }}</h3>
         </div>

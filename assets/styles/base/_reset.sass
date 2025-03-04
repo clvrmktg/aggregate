@@ -1,8 +1,6 @@
 @use 'sass:math'
 @use '../abstracts' as *
 
-*, *::before, *::after
-  box-sizing: inherit
 
 html
   box-sizing: border-box
@@ -12,6 +10,8 @@ html
   scroll-behavior: smooth
   scroll-padding-top: 10em
   
+*, *::before, *::after
+  box-sizing: inherit
 
 html, body
   overflow-x: hidden

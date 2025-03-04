@@ -1,5 +1,6 @@
 {{- define "main" -}}
 {{- .Scratch.Set "hasTwic" true -}}
+{{- .Store.Set "hasObscure" true -}}
 {{- partial "partials/hero.html" . -}}
   <ul class="[ products ][ grid md:col--3 gap--2 ]">
     {{ $twic := .Site.Params.twic }}

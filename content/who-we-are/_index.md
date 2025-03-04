@@ -2,7 +2,7 @@
 date = '2025-03-01T19:31:52-05:00'
 draft = false
 title = 'Who We Are'
-description = ''
+description = 'Learn more about Abaco Aggregate and Cement Ltd., delivering high-quality concrete, aggregate, and construction services across The Bahamas—built for tough terrains, trusted for reliability'
 
 [ hero ]
   image = 'offloading-concrete.jpg'
