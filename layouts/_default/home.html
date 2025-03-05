@@ -18,7 +18,7 @@
           <figure class="[ ratio--16:9 ]">
             {{ with $.Page.Resources.GetMatch .image.path }}
             <picture id="product-{{ $counter }}" class="[ bg ]">
-              <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+              <style>#product-{{ $counter | safeCSS  }} {background-image: url('https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
               <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="{{ $service.image.alt }}" width="{{ $service.Width }}" height="{{ $service.Height }}"/>
               <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" alt="{{ $service.image.alt }}" width="{{ $service.Width }}" height="{{ $service.Height }}"/></noscript>
             </picture>
@@ -63,7 +63,7 @@
         {{ with .Resources.GetMatch .Params.hero.image }}
         <figure class="[ feature__img ][ ratio--1:1 lg:ratio--4:5 scale o--1 ]">
           <picture id="project-{{ $counter }}" class="[ bg ]">
-            <style>#project-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+            <style>#project-{{ $counter | safeCSS  }} {background-image: url('https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
             <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="Work from our {{ $title }} project"/>
             <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" alt="Work from our {{ $title }} project"/></noscript>
           </picture>
