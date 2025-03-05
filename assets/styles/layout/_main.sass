@@ -27,7 +27,8 @@
   
   display: grid
   grid-template-columns: [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] var((--content-size)) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end]
-  
+  padding-inline: env(safe-area-inset-left) env(safe-area-inset-right)
+
   > .breakout
     grid-column: breakout
 

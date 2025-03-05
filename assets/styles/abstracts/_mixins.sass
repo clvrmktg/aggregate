@@ -335,22 +335,22 @@
 
 =gap($value)
 
-  $escaped-value: if(type-of($value) == 'number' and $value % 1 != 0, str-insert($value + '', '\\', str-index($value + '', '.')), $value)
+  $escaped-value: split-decimal($value)
 
   .gap--#{$escaped-value}
     gap: #{$value}em     
 
 =col-gap($value)
 
-  $escaped-value: if(type-of($value) == 'number' and $value % 1 != 0, str-insert($value + '', '\\', str-index($value + '', '.')), $value)
+  $escaped-value: split-decimal($value)
 
   .col-gap--#{$escaped-value}
     column-gap: #{$value}em
 
 =row-gap($value)
 
-  $escaped-value: if(type-of($value) == 'number' and $value % 1 != 0, str-insert($value + '', '\\', str-index($value + '', '.')), $value)
-
+  $escaped-value: split-decimal($value)
+  
   .row-gap--#{$escaped-value}
     row-gap: #{$value}em
 
@@ -404,7 +404,7 @@
             object-fit: cover
 
         @supports not (aspect-ratio: auto)
-          padding-top: percentage(math.div($width, $height))
+          padding-top: math.percentage(math.div($width, $height))
           position: relative
 
           > img, > noscript > img
@@ -425,7 +425,7 @@
           object-fit: cover
 
       @supports not (aspect-ratio: auto)
-        padding-top: percentage(math.div($width, $height))
+        padding-top: math.percentage(math.div($width, $height))
         position: relative
 
         > img, > noscript > img
