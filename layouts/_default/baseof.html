@@ -39,9 +39,10 @@
             form.submit(); // If no reCAPTCHA, submit normally
           });
         });
-
-      </script>
+        </script>
     {{ end }}
-
+    {{ if $.Store.Get "hasThankYou" }}
+    {{ partial "script.html" (dict "path" "scripts/components/thank-you.js" "targetPath" "scripts/thank-you.js") }}
+    {{ end }}
   </body>
 </html>
