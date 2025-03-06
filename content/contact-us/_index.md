@@ -5,8 +5,11 @@ title = 'Contact Us'
 
 description = ''
 
+contact = true
+
 [ hero ]
   image = 'abaco-beach-resort.jpg'
   alt = 'Abaco Beach Resort'
+
 
 +++
