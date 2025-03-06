@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html id="page" lang="{{ .Site.LanguageCode }}" prefix="og: https://ogp.me/ns#">
+  {{- block "variables" . -}}{{- end -}}
   {{ partial "head.html" . }}
   <body>
     <a class="screen-reader-text" href="#main">Skip to main content</a>
     <div id="container" class="[ container ]">
       {{ $currentPage := . }}
-      {{ printf "hasPadding: %v" ($.Store.Get "hasPadding") | safeHTML }}
       {{ partial "navbar.html" (dict "context" . "currentPage" $currentPage) }}
       <main class="[ main ][ full-width content-grid {{ if $.Store.Get "hasPadding" }}layout--padding{{end}} layout--spacing ]{{- if eq .Page.Kind "404" -}}[ error ]{{- end -}}" id="main">
         {{- block "main" . -}}{{- end -}}
