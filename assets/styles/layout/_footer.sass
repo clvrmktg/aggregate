@@ -68,11 +68,20 @@
       &::before
         opacity: 1
 
-+breakpoint(tablet)
-  .copy
-    
-    br
-      display: none
+.copy
+  display: grid
+
+  > small
+    display: inherit
+
+  +breakpoint(tablet)
+    display: flex
+
+    > small
+      display: inline
+
+
+
 
 .line
   background: color('grey')
