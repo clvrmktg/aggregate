@@ -2,7 +2,6 @@ baseURL = 'https://abacoaggregate.net/'
 languageCode = 'en-us'
 title = 'Abaco Aggregate & Cement, Ltd.'
 
-
 [ params ]
   version = "1738220434631"
   twic = "aggregate"
@@ -11,6 +10,10 @@ title = 'Abaco Aggregate & Cement, Ltd.'
   # Facebook App ID
   app_id = "223848628924279"
   error = true
+
+[taxonomies]
+  category = "categories"
+  # tag = "tags"
 
 [menu]
   # [[menu.main]]

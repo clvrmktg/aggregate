@@ -2,6 +2,7 @@
 date = '2025-03-02T17:18:54-05:00'
 draft = false
 title = 'Winding Bay'
+description = "Abaco Aggregate is developing a durable new parking lot at Winding Bay, Abaco. Using high-quality materials and expert construction, this project enhances accessibility and infrastructure for residents and visitors."
 categories = ['Road Paving', 'Horizontal Construction' ]
 
 [hero]

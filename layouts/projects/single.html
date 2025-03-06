@@ -51,8 +51,8 @@
         <div>
           <h3 class="[ font--5 ]">What We Did</h3>
           <ul class="[ tasks ]">
-            {{ range .Params.categories }}
-            <li>{{ . }}</li>
+            {{ range sort .Params.categories }}
+            <li><a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ . | title }}</a></li>
             {{ end }}
           </ul>
         </div>

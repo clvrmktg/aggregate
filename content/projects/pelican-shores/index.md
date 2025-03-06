@@ -2,7 +2,7 @@
 date = '2025-03-02T17:19:09-05:00'
 draft = false
 title = 'Pelican Shores'
-description = ''
+description = "Abaco Aggregate is improving road infrastructure in Pelican Shores, Abaco. Using high-quality materials and expert construction, this project enhances accessibility, durability, and safety for residents and visitors."
 categories = ['Horizontal Construction', 'Road Paving', 'Aggregate']
 
 [hero]
@@ -12,7 +12,6 @@ categories = ['Horizontal Construction', 'Road Paving', 'Aggregate']
 [client]
   name = 'Bahamas Government'
   location = 'Abaco, Bahamas'
-
 
 +++
 

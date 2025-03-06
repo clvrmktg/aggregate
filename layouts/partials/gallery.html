@@ -6,7 +6,7 @@
           <li class="[ thumb thumb--{{ $counter }} ]" thumbnail>
             <figure class="[ thumbnail ][ ratio--1:1 scale ]">
               <picture id="thumbnail-{{ $counter }}" class="[ bg ]">
-                <style>#thumbnail-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+                <style>#thumbnail-{{ $counter | safeCSS }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
                 <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" width="720" height="720" alt=""/></picture>
               <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" width="720" height="720" alt=""/></noscript>
             </figure>
@@ -40,7 +40,7 @@
               {{ $counter := add $index 1 }}
               <figure class="[ image image--{{ $counter }} ][ {{ if gt .Width .Height }}ratio--16:9{{else}}ratio--4:5{{end}} mx--auto ]">
                 <picture id="image-{{ $counter }}" class="[ bg ]">
-                  <style>#image-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+                  <style>#image-{{ $counter | safeCSS }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
                   <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" width="{{ .Width }}" height="{{ .Height }}" alt=""/></picture>
                 <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" width="{{ .Width }}" height="{{ .Height }}" alt=""/></noscript>
               </figure>

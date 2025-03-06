@@ -14,8 +14,8 @@
         {{ with $.Page.Resources.GetMatch .image.path }}
         <picture id="product-{{ $counter }}" class="[ bg ]">
           <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
-          <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt=""/>
-          <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview" alt=""/></noscript>
+          <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="" width="{{ .Width }}" height="{{ .Height }}"/>
+          <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview" alt="" width="{{ .Width }}" height="{{ .Height }}"/></noscript>
         </picture>
         {{ end }}
       </figure>
@@ -40,8 +40,8 @@
         {{ with $.Page.Resources.GetMatch .image.path }}
         <picture id="product-{{ $counter }}" class="[ bg ]">
           <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
-          <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt=""/>
-          <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview" alt=""/></noscript>
+          <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="" width="{{ .Width }}" height="{{ .Height }}"/>
+          <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview" alt="" width="{{ .Width }}" height="{{ .Height }}"/></noscript>
         </picture>
         {{ end }}
       </figure>

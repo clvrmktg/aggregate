@@ -10,9 +10,11 @@
   {{- $cover := .Params.cover -}}
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{{ $pageTitle }}</title>
+  {{ if .Description }}
   <meta name="description" content="{{- .Description -}}">
+  {{ end }}
   <link rel="canonical" href="{{ .Permalink  }}">
-  {{- if eq .Page.Kind "404" -}}
+  {{- if or (eq .Page.Kind "404") (eq .Page.RelPermalink "/thank-you/") -}}
   <meta name="robots" content="noindex">
   <meta name="googlebot" content="noindex">
   {{- end -}}
@@ -59,16 +61,12 @@
   {{- $alt := $feature.alt | default (printf "%s %s" .Site.Title "logo" ) -}}
   <meta property="og:description" content="{{- .Description -}}">
   <meta property="og:image" content="{{- $image | absURL -}}">
-  <meta property="og:image:alt" content="{{ $alt  }}">
-  <meta property="fb:app_id" content="{{ $.Site.Params.app_id }}">
+  <meta property="og:image:alt" content="{{ $alt }}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@jsphpndr">
-  <meta name="twitter:creator" content="@jsphpndr">
   <meta name="twitter:title" content="{{ $pageTitle }}">
   <meta name="twitter:description" content="{{- .Description -}}">
   <meta name="twitter:image" content="{{- $image | absURL -}}">
   <meta name="author" content="{{ .Site.Title }}">
   <meta name="publish_date" property="og:publish_date" content="{{- .Date.Format "2006-01-02T15:04:05Z0700" -}}">
-  <meta name="facebook-domain-verification" content="zq21trdszbl5aqzihtrzw3rngnpof0">
   {{ partial "schema/site.html" . }}
 </head>
