@@ -1,17 +1,17 @@
 @use 'abstracts' as *
   
 .footer
-  color: var(--white)
-  background-color: var(--black)
+  color: color('white')
+  background-color: color('black')
   
   a
-    color: var(--white)
+    color: color('white')
 
     > svg
-      fill: var(--white)
+      fill: color('white')
 
     +hover
-      color: var(--aac-gold)
+      color: color('aac-gold')
 
 .wrapper
 
@@ -50,20 +50,20 @@
       content: ''
       width: em(4)
       height: 100%
-      background-color: var(--aac-gold)
+      background-color: color('aac-gold')
       position: absolute
       top: 5%
       left: em(-15)
       opacity: 0
 
     +hover
-      color: var(--aac-gold)
+      color: color('aac-gold')
 
       &::before
         opacity: 1
 
     &.current
-      color: var(--aac-gold)
+      color: color('aac-gold')
       
       &::before
         opacity: 1

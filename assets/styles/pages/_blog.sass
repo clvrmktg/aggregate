@@ -5,8 +5,8 @@
   &__link
 
     > h3
-      color: var(--aac-gold)
-      background-color: var(--black)
+      color: color('aac-gold')
+      background-color: color('black')
       +transition((color, background-color))
       transition-duration: 1000ms
 
@@ -16,8 +16,8 @@
     +hover
 
       > h3
-        color: var(--black)
-        background-color: var(--aac-gold)
+        color: color('black')
+        background-color: color('aac-gold')
 
       > .scale > picture > img
         scale: 1.2

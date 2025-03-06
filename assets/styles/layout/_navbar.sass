@@ -2,7 +2,7 @@
 @use '../abstracts' as *
   
 .navbar
-  background-color: var(--black)
+  background-color: color('black')
   width: 100%
   height: var(--height)
   position: relative
@@ -17,7 +17,7 @@
 .backdrop
   width: 100vw
   height: inherit
-  background-color: var(--black)
+  background-color: color('black')
   position: absolute
   top: 0
   left: -2em
@@ -25,7 +25,7 @@
 
 .logo
   +clamp(width, 85, 100)
-  fill: var(--white)
+  fill: color('white')
 
 .navigation
 
@@ -33,7 +33,7 @@
     visibility: hidden
     width: 100vw
     height: 100svh
-    background-color: var(--aac-gold)
+    background-color: color('aac-gold')
     padding-top: var(--height)
     position: absolute
     top: 0
@@ -57,40 +57,40 @@
   &__item
 
     +device(tablet)
-      border-bottom: em(2) solid var(--black)
+      border-bottom: em(2) solid color('black')
 
     &:has(.current)
-      background-color: var(--black)
+      background-color: color('black')
 
     +hover
-      background-color: var(--black)
+      background-color: color('black')
 
   &__link
-    color: var(--black)
+    color: color('black')
     position: relative
     +transition((color, opacity))
     
     +device(desktop)
-      color: var(--white)
+      color: color('white')
 
       &::before
         content: ''
         width: em(4)
         height: 100%
-        background-color: var(--aac-gold)
+        background-color: color('aac-gold')
         position: absolute
         top: 5%
         left: em(-15)
         opacity: 0
 
     &.current
-      color: var(--aac-gold)
+      color: color('aac-gold')
 
       &::before
         opacity: 1
 
     +hover
-      color: var(--aac-gold)
+      color: color('aac-gold')
 
       &::before
         opacity: 1
@@ -116,7 +116,7 @@
   display: block
   width: inherit
   height: em(2)
-  background-color: var(--aac-gold)
+  background-color: color('aac-gold')
   border-radius: em(1)
   position: relative
   +transition((transform, background-color))
@@ -151,7 +151,7 @@
     // top: 0
   
   .bar
-    background-color: var(--aac-gold)
+    background-color: color('aac-gold')
     transform: rotate(225deg)
   
     &::before
