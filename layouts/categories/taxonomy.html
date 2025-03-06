@@ -1,3 +1,6 @@
+{{- define "variables" -}}
+  {{ .Store.Set "hasPadding" true }}
+{{- end -}}
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   <ul class="[ loop loop--projects ][ grid md:col--2 lg:col--3 gap--2 ]">
