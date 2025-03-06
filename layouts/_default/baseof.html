@@ -12,31 +12,34 @@
       {{- partial "footer.html" (dict "context" . "currentPage" $currentPage) -}}
     </div>
     {{partial "script.html" (dict "path" "scripts/components/prefetch.js" "targetPath" "scripts/prefetch.js")}}
-    {{- if .Store.Get "hasObscure"  -}}
+    {{- if $.Store.Get "hasObscure"  -}}
     {{ partial "script.html" (dict "path" "scripts/components/obscure.js" "targetPath" "scripts/obscure.js") }}
     {{- end -}}
     {{- if .Store.Get "project" -}}
     {{ partial "script.html" (dict "path" "scripts/vendor/lightgallery.js" "targetPath" "scripts/lightgallery.js") }}
     {{end}}
-    {{ if .Params.contact }}
-      <script src="https://cdn.jsdelivr.net/npm/bouncerjs@1.2.1/dist/bouncer.polyfills.min.js"></script>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          var bouncer = new Bouncer("#contact-form", {
-            disableSubmit: true, // Prevents submission if invalid
-            emitEvents: true
-          });
+    {{ if $.Store.Get "hasObscure" }}
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/bouncer/dist/bouncer.polyfills.min.js"></script>
+    <script>
+        // document.addEventListener("DOMContentLoaded", function () {
+        //   var bouncer = new Bouncer("#contact-form", {
+        //     disableSubmit: true, // Prevents submission if invalid
+        //     emitEvents: true
+        //   });
 
-          document.querySelector("#contact-form").addEventListener("bouncerFormValid", function (event) {
-            let form = event.target;
+        //   document.querySelector("#contact-form").addEventListener("bouncerFormValid", function (event) {
+        //     let form = event.target;
             
-            // Check if Netlify reCAPTCHA exists
-            if (form.querySelector('[data-netlify-recaptcha]')) {
-              return; // Do NOT auto-submit, let Netlify handle it
-            }
+        //     // Check if Netlify reCAPTCHA exists
+        //     if (form.querySelector('[data-netlify-recaptcha]')) {
+        //       return; // Do NOT auto-submit, let Netlify handle it
+        //     }
 
-            form.submit(); // If no reCAPTCHA, submit normally
-          });
+        //     form.submit(); // If no reCAPTCHA, submit normally
+        //   });
+        // });
+        var bouncer = new Bouncer('[data-validate]', {
+          disableSubmit: true  // Prevent submission until validation passes
         });
       </script>
     {{ end }}

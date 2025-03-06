@@ -1,16 +1,13 @@
 {{- define "main" -}}
 {{- .Scratch.Set "hasTwic" true -}}
 {{- $.Store.Set "hasObscure" true -}}
+{{- $.Store.Set "hasBouncer" true -}}
 {{- partial "partials/hero.html" . -}}
 <div class="[ layout--sidebar--right ][ grid gap--2 layout--padding--bottom ]">
   <div>
     <p>Need to talk to us? Fill out the contact form and we'll get back to you as soon as possible.</p>
-    {{ with .Store }}
-      <p>Store is available!</p>
-    {{ else }}
-      <p>Store is not available!</p>
-    {{ end }}
-    <form id="contact-form" class="[ grid gap--1 ]" name="contact" action="/thank-you" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true" novalidate>
+
+    <form class="[ grid gap--1 ]" name="contact" action="/thank-you" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true" data-validate>
       <div class="hidden">
         <label>
           Don’t fill this out if you’re human: <input name="bot-field" />
@@ -18,15 +15,15 @@
       </div>
       <div class="[ form__field ][ grid row-gap--0.5 ]">
         <label class="[ form__label ][ font--500 font--600 ]" for="name">Name <abbr class="[ required ]" title="This field is required" aria-label="This field is required">*</abbr></label>
-        <input class="[ form__input ][ p--0.5 ]" name="name" id="name" type="text" placeholder="Your Name" required="" minlength="2" maxlength="50"/>
+        <input class="[ form__input ][ p--0.5 ]" name="name" id="name" type="text" placeholder="Your Name" required minlength="2" maxlength="50"/>
       </div>
       <div class="[ form__field ][ grid row-gap--0.5 ]">
         <label class="[ form__label ][ font--500 font--600 ]" for="email">Email <abbr class="[ required ]" title="This field is required" aria-label="This field is required">*</abbr></label>
-        <input class="[ form__input ][ p--0.5 ]" name="email" id="email" type="email" placeholder="your@email.com" required=""/>
+        <input class="[ form__input ][ p--0.5 ]" name="email" id="email" type="email" placeholder="your@email.com" required/>
       </div>
       <div class="[ form__field ][ grid row-gap--0.5 ]">
         <label class="[ form__label ][ font--500 font--600 ]" for="message">Message <abbr class="[ required ]" title="This field is required" aria-label="This field is required">*</abbr></label>
-        <textarea class="[ form__message ][ p--0.5 ]" name="message" id="message" placeholder="Tell us how we can help..." required="" maxlength="3000"></textarea>
+        <textarea class="[ form__message ][ p--0.5 ]" name="message" id="message" placeholder="Tell us how we can help..." required maxlength="3000"></textarea>
       </div>
       <div data-netlify-recaptcha="true"></div>
       <div class="[ flex end ]">

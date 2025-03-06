@@ -7,5 +7,10 @@ input, textarea
 textarea
   min-height: 10rem
 
-.required
+.required, .error-message
   color: color('red')
+
+.form__field:has(.error-message)
+  
+  input, textarea
+    border-color: color('red')
