@@ -1,5 +1,7 @@
 {{ define "main" }}
 {{ $.Store.Set "hasPadding" true }}
+{{ printf "hasPadding: %v" ($.Store.Get "hasPadding") | safeHTML }}
+
   <div>
     <h1>{{ .Title }}</h1>
   

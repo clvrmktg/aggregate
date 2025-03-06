@@ -8,6 +8,8 @@
       {{ partial "navbar.html" (dict "context" . "currentPage" $currentPage) }}
       <main class="[ main ][ full-width content-grid {{ if .Store.Get "hasPadding" }}layout--padding{{end}} layout--spacing ]{{- if eq .Page.Kind "404" -}}[ error ]{{- end -}}" id="main">
         {{- block "main" . -}}{{- end -}}
+        {{ printf "hasPadding: %v" ($.Store.Get "hasPadding") | safeHTML }}
+
       </main>
       {{- partial "footer.html" (dict "context" . "currentPage" $currentPage) -}}
     </div>
