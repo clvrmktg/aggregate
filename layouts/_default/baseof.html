@@ -6,7 +6,7 @@
     <div id="container" class="[ container ]">
       {{ $currentPage := . }}
       {{ partial "navbar.html" (dict "context" . "currentPage" $currentPage) }}
-      <main class="[ main ][ full-width content-grid {{if $.Store.Get "padding"}}layout--padding{{end}} layout--spacing ]{{- if eq .Page.Kind "404" -}}[ error ]{{- end -}}" id="main">
+      <main class="[ main ][ full-width content-grid {{ if $.Store.Get "padding" }}layout--padding{{ end }} layout--spacing ]{{- if eq .Page.Kind "404" -}}[ error ]{{- end -}}" id="main">
         {{- block "main" . -}}{{- end -}}
       </main>
       {{- partial "footer.html" (dict "context" . "currentPage" $currentPage) -}}
