@@ -1,6 +1,6 @@
 {{- define "main" -}}
 {{- .Scratch.Set "hasTwic" true -}}
-
+{{- $.Store.Set "hasObscure" true -}}
 {{- partial "partials/hero.html" . -}}
 <div class="[ layout--sidebar--right ][ grid gap--2 layout--padding--bottom ]">
   <div>
