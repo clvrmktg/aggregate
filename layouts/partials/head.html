@@ -17,7 +17,6 @@
   <meta name="googlebot" content="noindex">
   {{- end -}}
   <link rel="preconnect" href="https://{{- .Site.Params.twic -}}.twic.pics/?v1">
-  <link rel="preload" href="https://{{- .Site.Params.twic -}}.twic.pics/?v1" as="script">
   {{- with resources.Get "styles/style.sass" -}}
     {{- $opts := dict
       "enableSourceMap" (not hugo.IsProduction)
@@ -33,8 +32,8 @@
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
         {{- end -}}
       {{- else -}}
-  <link rel="preload" href="{{ .RelPermalink }}?v={{ hash.XxHash now }}" as="style">
-  <link rel="stylesheet" href="{{ .RelPermalink }}?v={{ hash.XxHash now }}">
+  <link rel="preload" href="{{ .RelPermalink }}" as="style">
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
       {{- end -}}
     {{- end -}}
   {{- end -}}
