@@ -12,7 +12,7 @@ description = 'Learn more about Abaco Aggregate and Cement Ltd., delivering high
 
 ## About Us
 
-Founded in 2020, Abaco Aggregate and Cement Ltd. emerged with a singular vision: to establish itself as a premier construction company in the Abaco region.Although deeply rooted in Abaco, our vision extends far beyond regional confines. Recognizing the demand for high-quality concrete in challenging terrains, we've pioneered an innovative process that seamlessly integrates efficiency, top-tier quality, and fair pricing.
+Founded in 2020, Abaco Aggregate and Cement Ltd. emerged with a singular vision: to establish itself as a premier construction company in the Abaco region. Although deeply rooted in Abaco, our vision extends far beyond regional confines. Recognizing the demand for high-quality concrete in challenging terrains, we've pioneered an innovative process that seamlessly integrates efficiency, top-tier quality, and fair pricing.
 
 Our distinctive approach isn't restricted to Abaco; it's accessible to clients throughout the entire Bahamas. With a particular focus on serving remote and challenging-to-access areas across the country, our highly trained construction experts take pride in delivering exceptional aggregate and construction services to communities far and wide.
 
@@ -22,7 +22,7 @@ Abaco Aggregate and Cement Ltd.'s mission is to provide high-quality and reliabl
 
 ## Our Values
 
-Efficiency: Abaco Aggregate is dedicated to providing timely and resourceful construction solutions. Our commitment to efficiency propels us to continually optimize processes, ensuring precision and speed in project completion.
+**Efficiency**: Abaco Aggregate is dedicated to providing timely and resourceful construction solutions. Our commitment to efficiency propels us to continually optimize processes, ensuring precision and speed in project completion.
 
 **Safety**: The safety of our team, clients, and communities is paramount. Abaco Aggregate prioritizes rigorous safety protocols and invests in ongoing training to establish a secure working environment.
 
