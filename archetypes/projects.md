@@ -2,20 +2,21 @@
 date = '{{ .Date }}'
 draft = false
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
-description = ''
+description = ""
+categories ="[]"
 
 [hero]
-  background = ''
+  image = ''
   alt = ''
 
 [client]
   name = ''
   location = ''
 
-[[gallery]]
+# [[gallery]]
 
-  [gallery.image]
-    path = ''
-    alt = ''
+#   [gallery.image]
+#     path = ''
+#     alt = ''
 
 +++

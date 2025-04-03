@@ -10,14 +10,14 @@ categories = ['Road Paving', 'Horizontal Construction' ]
   alt = 'Overview of Treasure Cay Airport runway road paving'
 
 [client]
-  name = 'Treasure Cay Airport'
+  name = 'Ministry of Public Works'
   location = 'Treasure Cay, Abaco'
 
-[[gallery]]
+# [[gallery]]
 
-  [gallery.image]
-    path = ''
-    alt = ''
+#   [gallery.image]
+#     path = ''
+#     alt = ''
 
 +++
 
