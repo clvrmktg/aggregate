@@ -6,7 +6,7 @@ description = "Abaco Aggregate successfully completed the road paving project fo
 categories = ['Road Paving', 'Horizontal Construction' ]
 
 [hero]
-  background = 'treasure-cay-airport-road-paving-01.jpg'
+  image = 'treasure-cay-airport-road-paving-01.jpg'
   alt = 'Overview of Treasure Cay Airport runway road paving'
 
 [client]
