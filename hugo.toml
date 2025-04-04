@@ -10,7 +10,7 @@ title = 'Abaco Aggregate & Cement, Ltd.'
   # Facebook App ID
   app_id = "223848628924279"
   error = true
-  maintenance = true
+  maintenance = false
 
 [taxonomies]
   category = "categories"
