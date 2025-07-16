@@ -6,7 +6,7 @@ description = "Abaco Aggregate partnered with the Ministry of Works to deliver h
 categories = ["Road Paving", "Infrastructure Projects", "Government Works", "Abaco Projects"]
 
 [hero]
-  image = 'central-pines-003'
+  image = 'central-pines-003.jpg'
   alt = 'Fleet of trucks and crew staging for paving operation in Abaco'
 
 [client]
