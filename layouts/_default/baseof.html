@@ -1,55 +1,17 @@
 <!DOCTYPE html>
 <html id="page" lang="{{ .Site.LanguageCode }}" prefix="og: https://ogp.me/ns#">
 {{- if .Site.Params.maintenance -}}
-  <head>
-    <title>Account Suspended</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="This account has been suspended. Contact your hosting provider for more information.">
-    {{- with resources.Get "styles/status.sass" -}}
-      {{- $opts := dict
-        "enableSourceMap" (not hugo.IsProduction)
-        "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
-        "targetPath" "styles/status.css"
-        "transpiler" "dartsass"
-      -}}
-      {{- with . | toCSS $opts -}}
-        {{- if hugo.IsProduction -}}
-          {{- with . | fingerprint -}}
-          <link rel="preload" href="{{ .RelPermalink }}" as="style" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-          <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-          {{- end -}}
-        {{- else -}}
-        <link rel="preload" href="{{ .RelPermalink }}" as="style">
-        <link rel="stylesheet" href="{{ .RelPermalink }}">
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  </head>
-  <body class="[ content-grid full-width ]">
+  {{ partial "maintenance.html" . }}
+{{- else -}}
+  {{- block "variables" . -}}{{- end -}}
+  {{ partial "head.html" . }}
+  <body>
     {{ if eq hugo.Environment "production" }}
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDLDLD8L"
       height="0" width="0" class="display:none;visibility:hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
     {{ end }}  
-    <main>
-      <div class="[ status ]">
-        <div class="[ warning ]">
-          {{ readFile "static/icons/warning.svg" | safeHTML }}
-        </div>
-        <div>
-          <h1>This account has been suspended.</h1>
-          <p class="[ font--3 ]">Contact your hosting provider for more information.</p>
-        </div>
-      </div>
-    </main>
-
-  </body>
-
-{{- else -}}
-  {{- block "variables" . -}}{{- end -}}
-  {{ partial "head.html" . }}
-  <body>
     <a class="screen-reader-text" href="#main">Skip to main content</a>
     <div id="container" class="[ container ]">
       {{ $currentPage := . }}
@@ -58,6 +20,15 @@
         {{- block "main" . -}}{{- end -}}
       </main>
       {{- partial "footer.html" (dict "context" . "currentPage" $currentPage) -}}
+    </div>
+    <div id="cookie-banner" class="[ cookie--banner ][ gap--2 p--1 ]">
+      <div class="[ flex gap--1 ]">
+        {{ readFile "static/icons/cookie.svg" | safeHTML }}
+        <p class="[ font--500 pb--0 ]">This site uses cookies to improve performance and your experience. By using our website, you agree to our <a href="/privacy-policy/" data-prefetch>Privacy Policy</a>.</p>
+      </div>
+      <div>
+        <button id="accept-cookies"class="[ btn btn--lg aac--gold ]">Okay, thanks</button>
+      </div>
     </div>
     {{partial "script.html" (dict "path" "scripts/components/prefetch.js" "targetPath" "scripts/prefetch.js")}}
     {{- if $.Store.Get "hasObscure"  -}}
@@ -74,15 +45,6 @@
     {{ if $.Store.Get "hasThankYou" }}
     {{ partial "script.html" (dict "path" "scripts/components/thank-you.js" "targetPath" "scripts/thank-you.js") }}
     {{ end }}
-    <div id="cookie-banner" class="[ cookie--banner ][ grid gap--2 p--1 ]">
-      <div class="[ flex gap--1 ]">
-        {{ readFile "static/icons/cookie.svg" | safeHTML }}
-        <p class="[ font--500 pb--0 ]">This site uses cookies to improve performance and your experience. By using our website, you agree to our <a href="/privacy-policy/" data-prefetch>Privacy Policy</a>.</p>
-      </div>
-      <div>
-        <button id="accept-cookies"class="[ btn btn--lg aac--gold ]">Okay, thanks</button>
-      </div>
-    </div>
     {{ partial "script.html" (dict "path" "scripts/components/notice.js" "targetPath" "scripts/notice.js") }}
   </body>
 {{- end -}}
