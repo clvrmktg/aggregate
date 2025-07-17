@@ -37,16 +37,16 @@ export const handler = async (event) => {
       replyTo: 'info@abacoaggregate.net', // ✅ So they can reply with questions
       subject: 'Thanks for contacting Abaco Aggregate',
       text: `Hi ${name},
-    
-    Thanks for reaching out to Abaco Aggregate. We've received your message and will get back to you shortly.
-    
-    Here’s what you sent:
-    ${message}
-    
-    If you have any urgent questions, feel free to reply to this email.
-    
-    Best,
-    The Abaco Aggregate Team`,
+      
+      Thanks for reaching out to Abaco Aggregate. We've received your message and will get back to you shortly.
+      
+      Here’s what you sent:
+      ${message}
+      
+      If you have any urgent questions, feel free to reply to this email.
+      
+      Best,
+      The Abaco Aggregate Team`,
       html: `
         <div style="font-family: sans-serif; line-height: 1.5; color: #333;">
           <h2>Thanks for contacting Abaco Aggregate</h2>
