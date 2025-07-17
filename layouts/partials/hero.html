@@ -31,11 +31,11 @@
         <ol class="[ flex ][ col-gap--1 py--0.5 ]">
           {{- range .Ancestors -}}
           <li class="[ breadcrumb ]">
-            <a class="[ breadcrumb__link ]" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            <a class="[ breadcrumb__link ]" href="{{ .RelPermalink }}" data-prefetch>{{ .LinkTitle }}</a>
           </li>
           {{- end -}}
           <li class="[ breadcrumb ][ font--700 ]">
-            <a class="[ breadcrumb__link--last ]" href="{{ .RelPermalink }}" aria-current="page">{{ .LinkTitle }}</a>
+            <a class="[ breadcrumb__link--last ]" href="{{ .RelPermalink }}" aria-current="page" data-prefetch>{{ .LinkTitle }}</a>
           </li>
         </ol>
       </nav>

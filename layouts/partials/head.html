@@ -3,6 +3,8 @@
   {{- $pageTitle := "" -}}
   {{- if .IsHome -}}
   {{- $pageTitle = printf "%s | Bahamas Construction Company" .Site.Title -}}
+  {{- else if and (eq .Kind "term") (eq .Section "categories") }}
+  {{- $pageTitle = printf "%s | Categories | %s" .Title .Site.Title -}}
   {{- else -}}
   {{- $pageTitle = printf "%s | %s" .Title .Site.Title -}}
   {{- end -}}
