@@ -2,21 +2,19 @@
 date = '2025-03-01T19:32:51-05:00'
 draft = false
 title = 'Home'
-description = 'Abaco Aggregate and Cement Ltd. is your premier construction partner in The Bahamas. Founded in 2020, we specialize in delivering top-quality aggregate and construction services.'
+description = "Abaco Aggregate & Cement Ltd. is a leading supplier of concrete, cement, and construction materials in The Bahamas. Based in Abaco and trusted by public and private clients alike, we deliver expert road paving, foundation work, and infrastructure solutions—serving projects from Treasure Cay Airport to Island Luck Plaza and beyond."
 
 [services]
 
   [[services.service]]
     name = 'Aggregate'
-    description = 'Quality sand, rock, and fill materials for construction projects, ensuring stability, durability, and optimal performance in every application.'
-#    description = 'High-quality sand, rock, and fill materials sourced for strength, stability, and long-term performance—engineered to meet the demands of any construction project.'
+    description = 'Premium sand, rock, and fill for concrete, paving, and foundations—built for strength, reliability, and long-term performance in any Bahamian construction project.'
     [services.service.image]
       path = 'crushed-limestone.jpg'
       alt = 'Hills of aggregate product'
 
   [[services.service]]
     name = 'Road Paving'
-#    description = 'Superior cement products and expert asphalt paving services, delivering strength, durability, and smooth surfaces for lasting infrastructure solutions.'
     description = 'Expert asphalt paving services and durable cement products, delivering smooth, long-lasting roads and resilient infrastructure for communities across The Bahamas.'
     [services.service.image]
       path = 'bullock-harbour-road-paving-033.jpg'
@@ -24,7 +22,6 @@ description = 'Abaco Aggregate and Cement Ltd. is your premier construction part
 
   [[services.service]]
     name = 'Debris Management'
-#    description = 'Hurricane and construction debris management tailored to your project needs, ensuring environmental stewardship and sustainability from start to finish.'
     description = 'Targeted cleanup and removal of hurricane debris, construction rubble, and site waste—delivered with speed, safety, and environmental responsibility.'
     [services.service.image]
       path = 'hurricane-dorian-abaco-bahamas.jpg'

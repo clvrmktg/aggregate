@@ -5,7 +5,7 @@
 {{- partial "partials/hero.html" . -}}
 <div class="[ layout--sidebar--right ][ grid gap--2 layout--padding--bottom ]">
   <div>
-    <p>Need to talk to us? Fill out the contact form and we'll get back to you as soon as possible.</p>
+    <p>{{- .Content -}}</p>
 
     <form class="[ grid gap--1 ]" name="contact" action="/thank-you" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true" data-validate>
       <div class="hidden">
@@ -41,8 +41,13 @@
       <br>
       <span>Bahamas</span>
     </address>
-    <div>
-      <template obscure="obscure" data-p1="+1" data-p2="242" data-p3="813" data-p4="7981"><a href="tel:%1%2%3%4">(%2) %3 %4</a></template>
+    <div class="[ grid row-gap--0.5 ]">
+      <template obscure="obscure" data-p1="info" data-p2="abacoaggregate.net">
+        <span><a href="+mailto:%1%@2%">%1@%2</a></span>
+      </template>
+      <template obscure="obscure" data-p1="+1" data-p2="242" data-p3="813" data-p4="7981">
+        <span><a href="tel:%1%2%3%4">(%2) %3 %4</a></span>
+      </template>
     </div>
   </aside>
 </div>

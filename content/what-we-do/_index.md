@@ -2,7 +2,7 @@
 date = '2025-03-01T19:31:17-05:00'
 draft = false
 title = 'What We Do'
-description = "Learn more about Abaco Aggregate and Cement Ltd.'s expert construction solutions, including high-quality sand, rock, fill, cement, paving, and debris management—built for durability across The Bahamas."
+description = "Discover Abaco Aggregate & Cement Ltd.’s construction solutions in The Bahamas, including premium sand, rock, fill, concrete-ready cement, expert road paving, and debris management—engineered for durability and performance."
 
 [ hero ]
   image = 'bullock-harbour-road-paving-022.jpg'
@@ -13,21 +13,21 @@ description = "Learn more about Abaco Aggregate and Cement Ltd.'s expert constru
 
   [[products.product]]
     name = 'Sand'
-    description = 'Our high-quality sand is sourced and processed to meet rigorous construction standards. Whether for mixing with cement in concrete production, filling gaps in paving projects, or creating a stable base for various structures, our sand ensures optimal performance and durability.'
+    description = 'Our premium sand is carefully sourced for concrete, paving, and structural base work. Clean and consistent, it meets strict construction standards for strength, stability, and lasting performance in Bahamian projects.'
     [products.product.image]
       path = 'sand.jpg'
       alt = 'Hills of aggregate product'
 
   [[products.product]]
     name = 'Rock'
-    description = 'From building foundations to road construction, our premium rock materials offer unmatched strength and reliability. Meticulously selected and processed, our rocks are ideal for structural applications where durability and stability are paramount.'
+    description = 'Ideal for foundations, road building, and structural reinforcement, our high-grade rock provides strength and stability where it matters most. Each load is carefully screened to ensure quality and consistency.'
     [products.product.image]
       path = 'rock.jpg'
       alt = 'Concrete foundation poured by Abaco Aggregate'
 
   [[products.product]]
     name = 'Fill'
-    description = 'Versatile and precisely graded, our fill materials are engineered to provide support, stability, and leveling in construction projects of all scales. Whether filling excavated areas, raising ground surfaces, or creating a solid foundation, our fill materials ensure optimal performance and structural integrity.'
+    description = 'Our fill is clean, graded, and ready for compacting—ideal for raising elevations, filling excavated areas, or prepping a solid foundation. Engineered for strength and site stability across all project sizes.'
     [products.product.image]
       path = 'dirt-fill.jpg'
       alt = 'Hurricane Dorian debris in Abaco'
@@ -37,21 +37,21 @@ description = "Learn more about Abaco Aggregate and Cement Ltd.'s expert constru
 
   [[services.service]]
     name = 'Cement'
-    description = 'Our superior cement products are the foundation of countless construction projects across the Bahamas. Manufactured to the highest industry standards, our cement delivers exceptional strength and durability, ensuring the longevity and resilience of structures in diverse environments.'
+    description = 'Our cement is trusted across The Bahamas for concrete production, foundations, and structural builds. Manufactured to industry-leading standards, it delivers exceptional strength, bonding, and durability for long-lasting results in any environment.'
     [services.service.image]
       path = 'laying-foundation.jpg'
       alt = 'Hills of aggregate product'
 
   [[services.service]]
-    name = 'Horizontal Construction'
-    description = 'From highways to driveways, our asphalt paving services are second to none. Using advanced techniques and premium materials, we create smooth, durable surfaces that withstand heavy traffic and adverse weather conditions. Our commitment to quality ensures the longevity and functionality of every paved surface we deliver.'
+    name = 'Road Paving'
+    description = 'From highways and airport runways to local roads and parking lots, our expert road paving services deliver smooth, long-lasting surfaces built to withstand heavy traffic and Bahamian weather. Using premium asphalt and proven techniques, we help build stronger, safer infrastructure across The Bahamas.'
     [services.service.image]
       path = 'bullock-harbour-road-paving-019.jpg'
       alt = 'Concrete foundation poured by Abaco Aggregate'
 
   [[services.service]]
     name = 'Hurricane Debris Management'
-    description = 'Committed to environmental stewardship, we offer comprehensive waste management solutions tailored to the unique needs of construction projects in Abaco and beyond. From project inception to completion, we prioritize responsible disposal practices, minimizing environmental impact and maximizing sustainability.'
+    description = 'We manage hurricane and construction debris with safety and sustainability at the core. Whether clearing storm damage or job site waste, we ensure responsible disposal and regulatory compliance across Abaco and surrounding islands.'
     [services.service.image]
       path = 'hurricane-dorian-abaco-bahamas.jpg'
       alt = 'Hurricane Dorian debris in Abaco'
