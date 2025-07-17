@@ -73,13 +73,13 @@
     {{ if $.Store.Get "hasThankYou" }}
     {{ partial "script.html" (dict "path" "scripts/components/thank-you.js" "targetPath" "scripts/thank-you.js") }}
     {{ end }}
-    <div id="cookie-banner" class="[ cookie--banner ][ gap--2 p--1 ]">
-      <p class="[ font--500 pb--0 ]">We use cookies to improve performance. Click “Accept” to continue.</p>
-      <div class="[ cookie--accept ][ grid gap--1 ]">
-        <button id="accept-cookies"class="[ btn btn--lg aac--gold ]">Accept</button>
-        <a class="[ btn btn--lg aac--gold--ghost ]" href="/privacy-policy/" data-prefetch>Learn More
-          <span class="[ hidden ]">About How We Use Cookies</span>
-        </a>
+    <div id="cookie-banner" class="[ cookie--banner ][ grid gap--2 p--1 ]">
+      <div class="[ flex gap--1 ]">
+        {{ readFile "static/icons/cookie.svg" | safeHTML }}
+        <p class="[ font--500 pb--0 ]">This site uses cookies to improve performance and your experience. By using our website, you agree to our <a href="/privacy-policy/" data-prefetch>Privacy Policy</a>.</p>
+      </div>
+      <div>
+        <button id="accept-cookies"class="[ btn btn--lg aac--gold ]">Okay, thanks</button>
       </div>
     </div>
     {{ partial "script.html" (dict "path" "scripts/components/notice.js" "targetPath" "scripts/notice.js") }}

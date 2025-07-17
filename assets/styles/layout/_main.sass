@@ -105,6 +105,39 @@ $max-spacing: 5 * 20
 
     //The link's opacity is set to 1, making it fully visible.
 
+.products
+  background-color: color('light-grey')
+  +clamp(padding-top, 6 * $min, 7 * $min)
+  +clamp(padding-bottom, 5 * $min, 6 * $min)
+  position: relative
+
+  &::before, &::after
+    width: 100%
+    height: 8em
+    background-repeat: no-repeat
+    background-size: cover
+    position: absolute
+    z-index: 2
+
+  &::before
+    content: ''
+    background-image: url('/icons/paper-top.svg')
+    background-position: bottom center
+    inset: 0 0 auto 0
+    margin-inline: 0
+
+  &::after
+    content: ''
+    background-image: url('/icons/paper-bottom.svg')
+    background-position: top center
+    inset: auto 0 0 0
+    margin-inline: 0
+
+.service
+
+  &__img
+    box-shadow: 0 em(1) em(3) rgba(0, 0, 0, 0.12), 0 em(4) em(6) rgba(0, 0, 0, 0.08)
+
 .loop
   display: grid
   grid-template-rows: 1fr max-content

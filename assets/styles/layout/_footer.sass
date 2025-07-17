@@ -88,25 +88,28 @@
 $min-spacing: 3 * 16
 $max-spacing: 5 * 20
 
-.cookie
-  
-  &--banner
-    display: none
-    max-width: em(800)
+.cookie--banner
+  display: none
+  max-width: em(1000)
+  color: color('white')
+  background-color: color('black-8')
+  border-radius: em(5)
+  position: fixed
+  inset-block: auto 1em 
+  +clamp(inset-inline, 0, $max-spacing)
+  margin-inline: auto
+  bottom: 1em
+  z-index: 2
+
+  p > a
     color: color('white')
-    background-color: color('black-8')
-    border-radius: em(5)
-    position: fixed
-    inset-block: auto 1em 
-    +clamp(inset-inline, 0, $max-spacing)
-    margin-inline: auto
-    bottom: 1em
-    z-index: 2
 
-    +breakpoint(tablet)
-      grid-template-columns: 1fr max-content
+  svg
+    width: 6rem
+    fill: color('aac-gold')
 
-  &--accept
-    +breakpoint(tablet)
-      grid-template-columns: repeat(2, max-content)
-      grid-template-rows: max-content
+  +breakpoint(tablet)
+    grid-template-columns: 1fr max-content
+
+  > div:last-child
+    outline: $bg

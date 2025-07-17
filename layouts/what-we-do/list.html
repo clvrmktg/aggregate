@@ -2,26 +2,32 @@
 {{- .Scratch.Set "hasTwic" true -}}
 {{- .Store.Set "hasObscure" true -}}
 {{- partial "partials/hero.html" . -}}
-  <ul class="[ products ][ grid md:col--3 gap--2 ]">
-    {{ $twic := .Site.Params.twic }}
-    {{ $products := .Params.products.product }}
-    {{range $index, $product := $products }}
-    {{ $counter := add $index 1 }}
-    <li class="[ product ][ grid row-gap--1 ]">
-      <h3>{{ .name }}</h3>
-      <p>{{ .description }}</p>
-      <figure class="[ ratio--16:9 ]">
-        {{ with $.Page.Resources.GetMatch .image.path }}
-        <picture id="product-{{ $counter }}" class="[ bg ]">
-          <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
-          <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="" width="{{ .Width }}" height="{{ .Height }}"/>
-          <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview" alt="" width="{{ .Width }}" height="{{ .Height }}"/></noscript>
-        </picture>
-        {{ end }}
-      </figure>
-    </li>
-    {{ end }}
-  </ul>
+  <div class="[ text--center ]">
+    <h2>Building The Bahamas, One Project at a Time</h2>
+    <p class="[ font--3 font--500 ]">At Abaco Aggregate &amp; Cement Ltd., we provide end-to-end construction solutions across The Bahamas—supplying premium aggregates, concrete-ready cement, road paving, and responsible debris management services. Whether for government infrastructure, private developments, or remote island builds, our team delivers quality, durability, and results.</p>
+  </div>
+  <div class="[ products ][ full-width content-grid ]">
+    <ul class="[ grid md:col--3 gap--2 ]">
+      {{ $twic := .Site.Params.twic }}
+      {{ $products := .Params.products.product }}
+      {{range $index, $product := $products }}
+      {{ $counter := add $index 1 }}
+      <li class="[ product ][ grid row-gap--1 ]">
+        <h3>{{ .name }}</h3>
+        <p>{{ .description }}</p>
+        <figure class="[ ratio--16:9 ]">
+          {{ with $.Page.Resources.GetMatch .image.path }}
+          <picture id="product-{{ $counter }}" class="[ bg ]">
+            <style>#product-{{ $counter }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+            <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="" width="{{ .Width }}" height="{{ .Height }}"/>
+            <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview" alt="" width="{{ .Width }}" height="{{ .Height }}"/></noscript>
+          </picture>
+          {{ end }}
+        </figure>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
   <ul class="[ services ][ grid layout--spacing layout--padding--bottom ]">
     {{ $services := .Params.services.service }}
     {{ $parent := .CurrentSection }}
@@ -31,7 +37,7 @@
       <div class="[ o--2{{ if not (modBool $index 2) }} md:o--1{{ end }} ]">
         <div>
           <h2>{{ .name }}</h2>
-          <p>{{ .description }}{{ if not (modBool $index 2) }}{{ $index }}{{end}}</p>
+          <p>{{ .description }}</p>
         </div>
       </div>
       
