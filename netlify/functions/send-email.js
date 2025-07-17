@@ -16,7 +16,7 @@ export const handler = async (event) => {
     await resend.emails.send({
       from: 'Website Contact <no-reply@abacoaggregate.net>',
       to: 'info@abacoaggregate.net', // Replace with your client’s email
-      cc: ['kino.simmons73@gmail.com', 'madonna.simmons@hotmail.com', 'abacoaggregate@gmail.com', 'j_pinder@live.com'], 
+      cc: ['kino.simmons73@gmail.com', 'madonnasimmons@hotmail.com', 'abacoaggregate@gmail.com', 'j_pinder@live.com'], 
       replyTo: email,
       subject: 'New Contact Form Submission',
       text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
