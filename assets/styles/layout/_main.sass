@@ -63,7 +63,6 @@
     padding-top: em(27)
 
 
-
 $min-spacing: 3 * 16
 $max-spacing: 5 * 20
 
@@ -106,6 +105,19 @@ $max-spacing: 5 * 20
 
     //The link's opacity is set to 1, making it fully visible.
 
+.loop
+  display: grid
+  grid-template-rows: 1fr max-content
+  
+  &__item
+    display: grid
+    grid-template-rows: subgrid
+    grid-row: span 2
+
+  &__link
+    grid-template-rows: subgrid
+    grid-row: span 2
+
 
 +padding(0, 'x', 'md')
 +padding(0.25, 'x', 'md')
@@ -117,20 +129,29 @@ $max-spacing: 5 * 20
 +padding(1, 'y')
 +padding(1, 'top')
 +padding(5, 'y')
++padding(1)
 +padding(2)
 +padding(2, 'x')
++padding(0,'bottom')
 +padding(2,'bottom')
 +padding(2, 'x', 'md')
 +padding(0.5, 'x', 'md')
 +padding(5,'bottom')
+
++margin(2, 'bottom')
+
++gap(0)
 +gap(1)
 +gap(2)
 +gap(4)
+
 +col-gap(1)
 +col-gap(2)
 +col-gap(4)
+
 +row-gap(0.5)
 +row-gap(1)
+
 +col(2, 'md')
 +col(3, 'md')
 +col(3, 'lg')

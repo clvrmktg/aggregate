@@ -3,7 +3,12 @@ date = '2025-03-02T17:19:09-05:00'
 draft = false
 title = 'Pelican Shores'
 description = "Abaco Aggregate is improving road infrastructure in Pelican Shores, Abaco. Using high-quality materials and expert construction, this project enhances accessibility, durability, and safety for residents and visitors."
-categories = ['Horizontal Construction', 'Road Paving', 'Aggregate']
+categories = [
+  "Road Paving",
+  "Infrastructure Projects",
+  "Abaco Projects",
+  "Government Works"
+]
 
 [hero]
   image = 'pelican-shores-02.jpeg'

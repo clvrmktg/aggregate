@@ -26,7 +26,12 @@
     {{- end -}}
   </head>
   <body class="[ content-grid full-width ]">
-    
+    {{ if eq hugo.Environment "production" }}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDLDLD8L"
+      height="0" width="0" class="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    {{ end }}  
     <main>
       <div class="[ status ]">
         <div class="[ warning ]">
@@ -49,7 +54,7 @@
     <div id="container" class="[ container ]">
       {{ $currentPage := . }}
       {{ partial "navbar.html" (dict "context" . "currentPage" $currentPage) }}
-      <main class="[ main ][ full-width content-grid {{ if $.Store.Get "hasPadding" }}layout--padding{{end}} layout--spacing ]{{- if eq .Page.Kind "404" -}}[ error ]{{- end -}}" id="main">
+      <main class="[ main ][ full-width content-grid {{ if $.Store.Get "hasPadding" }}layout--padding{{end}} layout--spacing {{ if eq .Page.Kind "404" }}error{{ end }} ]" id="main">
         {{- block "main" . -}}{{- end -}}
       </main>
       {{- partial "footer.html" (dict "context" . "currentPage" $currentPage) -}}
@@ -63,31 +68,21 @@
     {{end}}
     {{ if $.Store.Get "hasObscure" }}
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/bouncer/dist/bouncer.polyfills.min.js"></script>
-    <script>
-
-        document.addEventListener("DOMContentLoaded", function () {
-          var bouncer = new Bouncer("[data-validate]", {
-            disableSubmit: true, // Prevents submission if invalid
-            emitEvents: true
-          });
-
-          document.querySelector("[data-validate]").addEventListener("bouncerFormValid", function (event) {
-            let form = event.target;
-            
-            // Check if Netlify reCAPTCHA exists
-            if (form.querySelector('[data-netlify-recaptcha]')) {
-              return; // Do NOT auto-submit, let Netlify handle it
-            }
-
-            form.submit(); // If no reCAPTCHA, submit normally
-          });
-        });
-    </script>
+    {{ partial "script.html" (dict "path" "scripts/components/validate.js" "targetPath" "scripts/validate.js") }}
     {{ end }}
     {{ if $.Store.Get "hasThankYou" }}
     {{ partial "script.html" (dict "path" "scripts/components/thank-you.js" "targetPath" "scripts/thank-you.js") }}
     {{ end }}
-
+    <div id="cookie-banner" class="[ cookie--banner ][ gap--2 p--1 ]">
+      <p class="[ font--500 pb--0 ]">We use cookies to improve performance. Click “Accept” to continue.</p>
+      <div class="[ cookie--accept ][ grid gap--1 ]">
+        <button id="accept-cookies"class="[ btn btn--lg aac--gold ]">Accept</button>
+        <a class="[ btn btn--lg aac--gold--ghost ]" href="/privacy-policy/" data-prefetch>Learn More
+          <span class="[ hidden ]">About How We Use Cookies</span>
+        </a>
+      </div>
+    </div>
+    {{ partial "script.html" (dict "path" "scripts/components/notice.js" "targetPath" "scripts/notice.js") }}
   </body>
 {{- end -}}
 </html>

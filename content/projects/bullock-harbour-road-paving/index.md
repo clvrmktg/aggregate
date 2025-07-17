@@ -3,7 +3,12 @@ date = '2025-03-02T17:18:35-05:00'
 draft = false
 title = 'Bullock Harbour Road Paving'
 description = "Abaco Aggregate & Cement, Ltd. completed a government road paving project in Bullock Harbour, Berry Islands, enhancing transportation infrastructure with durable, high-quality solutions."
-categories = ['Road Paving','Horizontal Construction' ]
+categories = [
+  "Road Paving",
+  "Infrastructure Projects",
+  "Government Works"
+]
+
 
 [hero]
   image = 'bullock-harbour-road-paving-018.jpg'

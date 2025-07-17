@@ -1,6 +1,7 @@
 baseURL = 'https://abacoaggregate.net/'
 languageCode = 'en-us'
 title = 'Abaco Aggregate & Cement, Ltd.'
+enableGitInfo = true
 
 [ params ]
   version = "1738220434631"
@@ -61,7 +62,7 @@ title = 'Abaco Aggregate & Cement, Ltd.'
     # Links
     [markup.goldmark.renderHooks]
       [markup.goldmark.renderHooks.link]
-        enableDefault = true        
+        enableDefault = true
 
 enableGitInfo = true
 

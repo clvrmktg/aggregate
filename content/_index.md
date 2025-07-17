@@ -9,20 +9,23 @@ description = 'Abaco Aggregate and Cement Ltd. is your premier construction part
   [[services.service]]
     name = 'Aggregate'
     description = 'Quality sand, rock, and fill materials for construction projects, ensuring stability, durability, and optimal performance in every application.'
+#    description = 'High-quality sand, rock, and fill materials sourced for strength, stability, and long-term performance—engineered to meet the demands of any construction project.'
     [services.service.image]
       path = 'crushed-limestone.jpg'
       alt = 'Hills of aggregate product'
 
   [[services.service]]
-    name = 'Horizontal Construction'
-    description = 'Superior cement products and expert asphalt paving services, delivering strength, durability, and smooth surfaces for lasting infrastructure solutions.'
+    name = 'Road Paving'
+#    description = 'Superior cement products and expert asphalt paving services, delivering strength, durability, and smooth surfaces for lasting infrastructure solutions.'
+    description = 'Expert asphalt paving services and durable cement products, delivering smooth, long-lasting roads and resilient infrastructure for communities across The Bahamas.'
     [services.service.image]
       path = 'bullock-harbour-road-paving-033.jpg'
       alt = 'Concrete foundation poured by Abaco Aggregate'
 
   [[services.service]]
     name = 'Debris Management'
-    description = 'Hurricane and construction debris management tailored to your project needs, ensuring environmental stewardship and sustainability from start to finish.'
+#    description = 'Hurricane and construction debris management tailored to your project needs, ensuring environmental stewardship and sustainability from start to finish.'
+    description = 'Targeted cleanup and removal of hurricane debris, construction rubble, and site waste—delivered with speed, safety, and environmental responsibility.'
     [services.service.image]
       path = 'hurricane-dorian-abaco-bahamas.jpg'
       alt = 'Hurricane Dorian debris in Abaco'
@@ -33,8 +36,14 @@ description = 'Abaco Aggregate and Cement Ltd. is your premier construction part
 
 +++
 
-Abaco Aggregate, your premier source for high-quality construction materials and services in the Bahamas.
+<!-- Abaco Aggregate, your premier source for high-quality construction materials and services in the Bahamas. -->
 
-From premium aggregates to top-tier cement and expert asphalt paving, we're committed to delivering excellence in every project we undertake.
+<!-- From premium aggregates to top-tier cement and expert asphalt paving, we're committed to delivering excellence in every project we undertake. -->
 
-With a focus on efficiency, safety, and community development, Abaco Aggregate is your trusted partner for building a sustainable future.
+<!-- With a focus on efficiency, safety, and community development, Abaco Aggregate is your trusted partner for building a sustainable future. -->
+
+Abaco Aggregate is your trusted source for high-quality aggregates, debris management, and infrastructure services in The Bahamas.
+
+We proudly serve government agencies, private developers, and commercial contractors—delivering reliable solutions from construction-grade sand, rock, and fill to durable cement products and expert road paving using high-performance asphalt.
+
+With a commitment to safety, efficiency, and sustainable development, Abaco Aggregate helps build cleaner job sites, stronger communities, and more resilient infrastructure—one project at a time.

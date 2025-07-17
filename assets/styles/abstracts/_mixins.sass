@@ -161,7 +161,7 @@
 
   @if $prop == 'top'
     $side: 't'
-
+  
   @if $prop == 'right'
     $side: 'r'
 
@@ -172,6 +172,46 @@
     $side: 'l'
 
   $escaped-value: split-decimal($value)
+
+  @if $side
+    $class-prefix: if($breakpoint, "#{$breakpoint}\\:m#{$side}--", "m#{$side}--")
+    
+    .#{$class-prefix}#{$escaped-value}
+      @if map.get($breakpoints, $breakpoint) != null
+        +breakpoint(map.get($breakpoints, $breakpoint))
+          margin-#{$prop}: #{$value}em
+      @else
+        margin-#{$prop}: #{$value}em
+
+  @else if $prop == 'x'
+    $class-prefix: if($breakpoint, "#{$breakpoint}\\:mx--", "mx--")
+    
+    .#{$class-prefix}#{$escaped-value}
+      @if map.get($breakpoints, $breakpoint) != null
+        +breakpoint(map.get($breakpoints, $breakpoint))
+          margin-inline: #{$value}em
+      @else
+        margin-inline: #{$value}em
+
+  @else if $prop == 'y'
+    $class-prefix: if($breakpoint, "#{$breakpoint}\\:my--", "my--")
+
+    .#{$class-prefix}#{$escaped-value}
+      @if map.get($breakpoints, $breakpoint) != null
+        +breakpoint(map.get($breakpoints, $breakpoint))
+          margin-block: #{$value}em
+      @else
+        margin-block: #{$value}em
+
+  @else
+    $class-prefix: if($breakpoint, "#{$breakpoint}\\:m--", "m--")
+
+    .#{$class-prefix}#{$escaped-value}
+      @if map.get($breakpoints, $breakpoint) != null
+        +breakpoint(map.get($breakpoints, $breakpoint))
+          margin: #{$value}em
+      @else
+        margin: #{$value}em
 
 // Padding mixin with breakpoints
 =padding($value, $prop: null, $breakpoint: null)

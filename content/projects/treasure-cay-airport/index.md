@@ -3,7 +3,14 @@ date = '2025-04-03T09:39:46-04:00'
 draft = false
 title = 'Treasure Cay Airport'
 description = "Abaco Aggregate successfully completed the road paving project for Treasure Cay Airport's runway in Abaco, The Bahamas, ensuring safety and durability for air traffic operations."
-categories = ['Road Paving', 'Horizontal Construction' ]
+categories = [
+  "Road Paving",
+  "Infrastructure Projects",
+  "Government Works",
+  "Abaco Projects",
+  "Airport Improvements"
+]
+
 
 [hero]
   image = 'treasure-cay-airport-road-paving-01.jpg'

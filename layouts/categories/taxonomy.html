@@ -2,28 +2,20 @@
 {{ .Store.Set "hasPadding" true }}
 {{- end -}}
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <ul class="[ loop loop--projects ][ grid md:col--2 lg:col--3 gap--2 ]">
+  <header class="[ grid gap--1 ]">
+    <div>
+      <h1>{{ .Title }}</h1>
+      {{ partial "breadcrumbs.html" (dict "page" . "ancestors" .Ancestors) }}
+    <p class="[ font--4 ch--45 ]">Discover the full scope of Abaco Aggregate’s work across The Bahamas. From road paving and infrastructure upgrades to government works and debris management, our projects reflect quality, reliability, and a commitment to building stronger communities.</p>
+  </header>
+  <ul>
     {{ $counter := 0 }}
     {{ range .Pages }}
     {{ $counter := add $counter 1 }}
     <li class="[ loop__item ]">
-      <a class="[ loop__link ][ grid ]" href="{{ .RelPermalink }}">
-        <h3 class="[ font--4 font--500 px--0.5 py--0.75 o--2 ]">{{ .Title }}</h3>
-        {{- $twic := .Site.Params.twic -}}
-        {{- $title :=  .Title -}}
-        {{ with .Resources.GetMatch (.Params.hero.image) }}
-        <figure class="[ ratio--1:1 scale o--1 ]">
-          <picture id="image-{{ $counter }}" class="[ bg ]">
-            <style>#image-{{ $counter }} {background-image: url('https://{{- $twic -}}.twic.pics/{{- .RelPermalink -}}?twic=v1/output=preview');}</style>
-            <img data-twic-src="image:{{- .RelPermalink -}}" data-twic-preview="image:{{- .RelPermalink -}}" data-twic-focus="auto" width="720" height="720" alt="Work from {{ $title }} project"Work from {{ .Title }} project/>
-            <noscript>
-              <img class="[ script ]" src="https://{{- $twic -}}.twic.pics/{{- .RelPermalink -}}?twic=v1/output=preview" width="720" height="720" alt="Work from {{ $title }} project"/>
-            </noscript>
-          </picture>
-        </figure>
-        {{ end }}
-      </a>
+     
+        <h3 class="[ font--5 ]"> <a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      
     </li>
     {{end}}
   </ul>

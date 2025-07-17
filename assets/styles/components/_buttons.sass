@@ -20,23 +20,13 @@ $border: 0.15em
 .btn, button.btn
   @extend %btn
 
-  &--solid
+  &--sm
+    // padding: 0.25em 0.5em
+    padding: (0.25em - $border) (0.5em - $border)
 
-    &--sm
-      // padding: 0.25em 0.5em
-      padding: (0.25em - $border) (0.5em - $border)
-
-    &--lg
-      // padding: 0.5em 1em
-      padding: (0.5em - $border) (2em - $border)
-
-  &--ghost
-
-    &--sm
-      padding: (0.25em - $border) (0.5em - $border)
-
-    &--lg
-      padding: (0.5em - $border) (2em - $border)
+  &--lg
+    // padding: 0.5em 1em
+    padding: (0.5em - $border) (2em - $border)
 
 
 .aac, button.aac

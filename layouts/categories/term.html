@@ -1,7 +1,18 @@
-{{- define "main" -}}
-{{- .Scratch.Set "hasTwic" true -}}
-{{- partial "partials/hero.html" . -}}
-<div class="[ full-width content-grid layout--spacing layout--padding--bottom ]">
+{{- define "variables" -}}
+{{ .Store.Set "hasPadding" true }}
+{{- end -}}
+{{ define "main" }}
+  <header class="[ grid gap--1 ]">
+    <div>
+      <h1>{{ .Title }}</h1>
+      {{ partial "breadcrumbs.html" (dict "page" . "ancestors" .Ancestors.Reverse) }}
+    </div>
+    {{ $key := .Title | urlize | lower }}
+    {{ $category := index site.Data.categories $key }}
+    {{ with $category.summary }}
+      <p class="[ font--4 ch--45 ]">{{ . }}</p>
+    {{ end }}
+  </header>
   <ul class="[ loop loop--projects ][ grid md:col--2 lg:col--3 gap--2 ]">
     {{ $counter := 0 }}
     {{ range .Pages }}
@@ -26,5 +37,4 @@
     </li>
     {{end}}
   </ul>
-</div>
-{{- end -}}
+{{ end }}

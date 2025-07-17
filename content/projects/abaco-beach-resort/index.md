@@ -3,7 +3,12 @@ date = '2025-03-02T16:49:51-05:00'
 draft = false
 title = 'Abaco Beach Resort'
 description = 'Abaco Aggregate & Cement, Ltd. supplied premium cement for the Abaco Beach Resort renovation, ensuring durability and elegance. Learn more about our high-quality construction materials.'
-categories = ['Cement']
+categories = [
+  "Infrastructure Projects",
+  "Private Sector Projects",
+  "Abaco Projects"
+]
+
 
 [hero]
   image = 'abaco-beach-resort-002.jpg'
