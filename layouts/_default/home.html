@@ -1,5 +1,7 @@
+{{- define "variables" -}}
+{{- .Store.Set "hasTwic" true -}}
+{{- end -}}
 {{- define "main" -}}
-  {{- .Store.Set "hasTwic" true -}}
   {{- partial "partials/hero.html" . -}}
   {{- $twic := .Site.Params.twic -}}
   <div class="[ full-width content-grid layout--spacing layout--padding--bottom ]">

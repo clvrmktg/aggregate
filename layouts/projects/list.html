@@ -1,5 +1,7 @@
+{{- define "variables" -}}
+{{- .Store.Set "hasTwic" true -}}
+{{- end -}}
 {{- define "main" -}}
-{{- .Scratch.Set "hasTwic" true -}}
 {{- partial "partials/hero.html" . -}}
 <div class="[ full-width content-grid layout--spacing layout--padding--bottom ]">
   <ul class="[ loop loop--projects ][ grid md:col--2 lg:col--3 gap--2 ]">

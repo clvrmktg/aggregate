@@ -1,12 +1,14 @@
+{{- define "variables" -}}
+{{- .Store.Set "hasTwic" true -}}
+{{- end -}}
 {{- define "main" -}}
-{{- .Scratch.Set "hasTwic" true -}}
 {{- partial "partials/hero.html" . -}}
   <div class="[ text--center ]">
     <h2>Building The Bahamas, One Project at a Time</h2>
     <p class="[ font--3 font--500 ]">At Abaco Aggregate &amp; Cement Ltd., we provide end-to-end construction solutions across The Bahamas—supplying premium aggregates, concrete-ready cement, road paving, and responsible debris management services. Whether for government infrastructure, private developments, or remote island builds, our team delivers quality, durability, and results.</p>
   </div>
-  <div class="[ products ][ full-width content-grid ]">
-    <ul class="[ grid md:col--3 gap--2 ]">
+  <div class="[ torn ][ full-width content-grid ]">
+    <ul class="[ products ][ grid md:col--3 gap--2 ]">
       {{ $twic := .Site.Params.twic }}
       {{ $products := .Params.products.product }}
       {{range $index, $product := $products }}
