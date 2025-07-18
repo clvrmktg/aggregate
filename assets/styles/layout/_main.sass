@@ -106,7 +106,7 @@ $max-spacing: 5 * 20
     //The link's opacity is set to 1, making it fully visible.
 
 .products
-  background-color: color('light-grey')
+  background-color: color('grey-light')
   +clamp(padding-top, 6 * $min, 7 * $min)
   +clamp(padding-bottom, 5 * $min, 6 * $min)
   position: relative
@@ -152,15 +152,18 @@ $max-spacing: 5 * 20
     grid-row: span 2
 
 
+
 +padding(0, 'x', 'md')
 +padding(0.25, 'x', 'md')
 +padding(0.25,'y', 'md')
++padding(0.25,'x')
 +padding(0.5)
 +padding(0.5,'x')
 +padding(0.5,'y')
 +padding(0.75,'y')
 +padding(1, 'y')
 +padding(1, 'top')
++padding(0.25, 'y')
 +padding(5, 'y')
 +padding(1)
 +padding(2)
@@ -174,10 +177,12 @@ $max-spacing: 5 * 20
 +margin(2, 'bottom')
 
 +gap(0)
++gap(0.5)
 +gap(1)
 +gap(2)
 +gap(4)
 
++col-gap(0.5)
 +col-gap(1)
 +col-gap(2)
 +col-gap(4)

@@ -36,3 +36,15 @@
   to = "/sitemap.xml"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/projects/winding-bay/"
+  to = "/projects/winding-bay-parking-lot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects/pelican-shores"
+  to = "/projects/pelican-shores-road-improvement"
+  status = 301
+  force = true

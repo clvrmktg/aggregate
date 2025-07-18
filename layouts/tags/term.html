@@ -1,10 +1,7 @@
 {{- define "variables" -}}
-  {{ .Store.Set "hasPadding" true }}
-  {{ $key := .Title | urlize | lower }}
-  {{ with index site.Data.categories $key }}
-    {{ .Store.Set "description" .description }}
-  {{ end }}
-  {{ .Store.Set "hasTwic" true}}
+{{ .Store.Set "hasPadding" true }}
+{{ .Store.Set "description" (printf "Explore Abaco Aggregate projects tagged under '%s' across The Bahamas—highlighting our construction, paving, and infrastructure expertise." .Title) }}
+{{- .Store.Set "hasTwic" true -}}
 {{- end -}}
 {{ define "main" }}
   <header class="[ grid gap--1 ]">
@@ -12,11 +9,9 @@
       <h1>{{ .Title }}</h1>
       {{ partial "breadcrumbs.html" (dict "page" . "ancestors" .Ancestors.Reverse) }}
     </div>
-    {{ $key := .Title | urlize | lower }}
-    {{ $category := index site.Data.categories $key }}
-    {{ with $category.summary }}
-      <p class="[ font--4 ch--45 ]">{{ . }}</p>
-    {{ end }}
+    <p class="[ font--4 ch--45 ]">
+      Explore construction projects tagged with <strong>{{ .Title }}</strong>—featuring Abaco Aggregate’s high-quality materials and services across The Bahamas.
+    </p>
   </header>
   <ul class="[ loop loop--projects ][ grid md:col--2 lg:col--3 gap--2 ]">
     {{ $counter := 0 }}

@@ -102,11 +102,24 @@
         order: 1
 
 .write-up
+  min-width: 0
+  
   +device(desktop)
-    grid-template-columns: 1fr max-content
+    grid-template-columns: 1fr minmax(min-content, em(250) )
   
   h2
     font-size: var(--step-2)
+
+.tag
+
+  &__link
+    color: color('black')
+    background-color: color('grey-light')
+    border-radius: em(5)
+    +transition(background-color)
+
+    &:hover
+      background-color: color('aac-gold')
 
 .scale
   > picture 

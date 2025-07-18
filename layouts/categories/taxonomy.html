@@ -1,5 +1,6 @@
 {{- define "variables" -}}
 {{ .Store.Set "hasPadding" true }}
+{{ .Store.Set "description" "Browse construction project categories by Abaco Aggregate & Cement Ltd.—from road paving and infrastructure to government works and private developments across The Bahamas."}}
 {{- end -}}
 {{ define "main" }}
   <header class="[ grid gap--1 ]">
@@ -12,10 +13,8 @@
     {{ $counter := 0 }}
     {{ range .Pages }}
     {{ $counter := add $counter 1 }}
-    <li class="[ loop__item ]">
-     
-        <h3 class="[ font--5 ]"> <a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-      
+    <li>
+      <h3 class="[ font--5 ]"> <a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
     </li>
     {{end}}
   </ul>

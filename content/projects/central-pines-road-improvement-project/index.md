@@ -2,8 +2,9 @@
 date = '2025-07-16T16:13:13-04:00'
 draft = false
 title = 'Central Pines Road Improvement Project'
-description = "Abaco Aggregate partnered with the Ministry of Works to deliver high-quality road paving in Central Pines, Abaco—enhancing safety, infrastructure, and accessibility through expert asphalt resurfacing."
+description = "Abaco Aggregate is paving roads in Central Pines, Abaco, enhancing infrastructure and safety with durable asphalt for the Ministry of Works."
 categories = ["Road Paving", "Infrastructure Projects", "Government Works", "Abaco Projects"]
+tags = ["asphalt paving", "abaco", "central pines", "infrastructure", "government project", "construction"]
 
 [hero]
   image = 'central-pines-003.jpg'

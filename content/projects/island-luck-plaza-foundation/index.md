@@ -2,8 +2,9 @@
 date = '2025-03-02T17:18:15-05:00'
 draft = false
 title = 'Island Luck Plaza Foundation'
-description = "Abaco Aggregate & Cement, Ltd. led the foundation pouring for Island Luck Plaza in Abaco, ensuring a strong, durable base with top-tier cement and expert construction techniques."
+description = "Abaco Aggregate & Cement, Ltd. led the foundation project for Island Luck Plaza in Abaco, delivering durable cement and expert construction to support long-term infrastructure development."
 categories = ["Infrastructure Projects", "Private Sector Projects", "Abaco Projects"]
+tags = ["cement", "concrete", "construction", "infrastructure", "Abaco", "private sector"]
 
 [hero]
   image = 'island-luck-plaza-foundation-004.jpg'

@@ -1,6 +1,8 @@
-{{- define "main" -}}
-{{- .Scratch.Set "hasTwic" true -}}
+{{- define "variables" -}}
+{{- .Store.Set "hasTwic" true -}}
 {{- .Store.Set "project" true -}}
+{{- end -}}
+{{- define "main" -}}
 <header class="[ hero ][ full-width content-grid ]">
   {{- $twic := .Site.Params.twic -}}
   {{ with .Resources.GetMatch (.Params.hero.image) }}
@@ -28,7 +30,7 @@
     </div>
   </div>
 </header>
-<article class="[ grid ]">
+<article class="[ post ][ grid ]">
   <div class="[ write-up ][ grid col-gap--2 pb--2 ]">
     <div class="[ x--750 grid gap--1 ]">
       <div>
@@ -49,13 +51,25 @@
     <div class="[ x--750 ]">
       <div class="[ grid gap--2 ]">
         <div>
-          <h3 class="[ font--5 ]">What We Did</h3>
+          <h3 class="[ font--5 ]">Project Scope</h3>
           <ul class="[ tasks ]">
             {{ range sort .Params.categories }}
-            <li><a href="{{ "/categories/" | relURL }}{{ . | urlize }}" data-prefetch>{{ . | title }}</a></li>
+            <li><a href="{{ "/categories/" | relURL }}{{ . | urlize }}/" data-prefetch>{{ . | title }}</a></li>
             {{ end }}
           </ul>
         </div>
+        {{ with .Params.tags }}
+        <div class="[ grid gap--0.5 ]">
+          <h3 class="[ font--5 ]">Tags</h3>
+          <ul class="[ tags ][ flex--wrap gap--0.5 ]">
+            {{ range . }}
+              <li class="[ tag__item ]">
+                <a class="[ tag__link ][ font--500 px--0.5 py--0.25 ]" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
         <div class="[ grid row-gap--0.5 ]">
           <h3 class="[ font--5 ]">Share this page:</h3>
           <ul class="[ social ][ flex col-gap--1 ]">

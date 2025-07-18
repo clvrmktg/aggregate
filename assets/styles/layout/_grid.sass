@@ -1,5 +1,11 @@
+@use '../abstracts' as *
+  
 .flex
   display: flex
+
+  &--wrap
+    @extend .flex
+    flex-wrap: wrap
 
 .start
   justify-content: flex-start
@@ -16,7 +22,6 @@
 
 .middle
   align-items: center
-
 
 .grid
   display: grid

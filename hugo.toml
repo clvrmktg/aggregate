@@ -1,4 +1,5 @@
 baseURL = 'https://abacoaggregate.net/'
+canonifyURLs = true
 languageCode = 'en-us'
 title = 'Abaco Aggregate & Cement, Ltd.'
 enableGitInfo = true
@@ -15,8 +16,7 @@ enableGitInfo = true
 
 [taxonomies]
   category = "categories"
-  # tag = "tags"
-
+  tag = "tags"
 
 [menu]
   # [[menu.main]]
