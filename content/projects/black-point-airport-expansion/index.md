@@ -39,14 +39,15 @@ As part of the Bahamas Family Islands Renaissance Project, the Government of The
 
 This transformative initiative is designed to meet modern aviation and safety standards while strengthening connectivity across the Family Islands.
 
-Key Features
-New ICAO-compliant runway for enhanced safety and international standards
+## Key Features
 
-Solar-powered lighting system to improve visibility and sustainability
+- New ICAO-compliant runway for enhanced safety and international standards
 
-Upgraded drainage systems to ensure durability and flood resilience
+- Solar-powered lighting system to improve visibility and sustainability
 
-Comprehensive airside infrastructure improvements supporting long-term growth
+- Upgraded drainage systems to ensure durability and flood resilience
+
+- Comprehensive airside infrastructure improvements supporting long-term growth
 
 Impact
 The Black Point Airport expansion reflects our continued commitment to building safe, resilient, and future-ready infrastructure throughout The Bahamas. This project will not only improve air travel for residents and visitors but also support economic development in the Exuma Cays and beyond.
