@@ -10,9 +10,9 @@ function getSiteContext(event) {
   const siteEmail = process.env.APP_SITE_EMAIL || `noreply@${domain}`;
   const adminEmail = process.env.APP_ADMIN_EMAIL || `info@${domain}`;
   const ccEmails =
-    process.env.APP_CC_EMAILS && process.env.APP_USE_CC !== "false"
-      ? process.env.APP_CC_EMAILS.split(",")
-      : [];
+  process.env.APP_CC_EMAILS && process.env.APP_USE_CC !== "false"
+    ? process.env.APP_CC_EMAILS.split(",").map(e => e.trim()).filter(Boolean)
+    : [];
 
   return { domain, siteName, siteEmail, adminEmail, ccEmails };
 }
@@ -45,7 +45,7 @@ function confirmationEmailTemplate({ siteName, name, message }) {
 
 Thanks for reaching out to ${siteName}. We've received your message and will get back to you shortly.
 
-Here’s what you sent:
+Here's what you sent:
 ${message}
 
 If you have any urgent questions, feel free to reply to this email.
@@ -56,7 +56,7 @@ The ${siteName} Team`,
       <div style="font-family: sans-serif; line-height: 1.5; color: #333;">
         <h2>Thanks for contacting ${siteName}</h2>
         <p>Hi ${name},</p>
-        <p>We’ve received your message and will be in touch soon.</p>
+        <p>We've received your message and will be in touch soon.</p>
         <h3>Your message:</h3>
         <p>${message.replace(/\n/g, "<br>")}</p>
         <p>If you have any urgent questions, just reply to this email.</p>
