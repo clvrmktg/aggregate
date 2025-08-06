@@ -64,7 +64,9 @@ enableGitInfo = true
       [markup.goldmark.renderHooks.link]
         enableDefault = true
 
-enableGitInfo = true
+[minify]
+  [minify.tdewolff.html]
+    keepQuotes = true
 
 [sitemap]
   filename = "sitemap"  # Remove .xml
