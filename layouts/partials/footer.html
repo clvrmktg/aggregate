@@ -1,5 +1,5 @@
-<footer class="[ footer ][ full-width content-grid py--5 ]">
-  <div class="[ wrapper wrapper--footer ][ grid gap--4 pb--2 ]">
+<footer class="[ footer ][ full-width content-grid layout--spacing layout--padding--top pb--2 ]">
+  <div class="[ wrapper wrapper--footer ][ grid gap--4 ]">
     <div class="[ logo-slogan ][ grid col-gap--2 row-gap--1 ]">
       <a class="[ logo ][ flex middle mb--1 ]" href="/" aria-label="Homepage">
         {{- readFile "static/icons/logo.svg" | safeHTML }}
@@ -22,7 +22,7 @@
       </ul>
     </nav>
   </div>
-  <div class="[ copy ][ between middle gap--2 ]">
+  <div class="[ legal ][ between gap--2 ]">
     <nav class="[ md:o--2 ]">
       <ul>
         <li>
@@ -30,8 +30,11 @@
         </li>
       </ul>
     </nav>
-    <small class="[ md:o--1 ]">
-      <span>© 2024 Abaco Aggregate &amp; Cement, Ltd.</span> <span>All rights reserved.</span>
-    </small>
+    <div class="[ grid gap--0.5 md:o--1 ]">
+      <small class="[ copy ]">
+        <span>©{{ now.Format "2006" }} Abaco Aggregate &amp; Cement, Ltd.</span> <span>All rights reserved.</span>
+      </small>
+      <small>Website built by <a class="[ policy ]" href="https://getclever.marketing" target="_blank" rel="noopener">Clever Marketing, Ltd.</a></small>
+    </div>
   </div>
 </footer>

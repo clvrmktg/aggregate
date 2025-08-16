@@ -1,5 +1,5 @@
 baseURL = 'https://abacoaggregate.net/'
-canonifyURLs = true
+# canonifyURLs = true
 languageCode = 'en-us'
 title = 'Abaco Aggregate & Cement, Ltd.'
 enableGitInfo = true
