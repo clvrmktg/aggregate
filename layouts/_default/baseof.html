@@ -30,12 +30,12 @@
         <button id="accept-cookies"class="[ btn btn--lg aac--gold ]">Okay, thanks</button>
       </div>
     </div>
-    {{partial "script.html" (dict "path" "scripts/components/prefetch.js" "targetPath" "scripts/prefetch.js") "attribues" (dict "defer" true)}}
-    {{- if $.Store.Get "hasObscure"  -}}
-    {{ partial "script.html" (dict "path" "scripts/components/obscure.js" "targetPath" "scripts/obscure.js")  "attribues" (dict "defer" true)}}
-    {{- end -}}
+    {{partial "script.html" (dict "path" "scripts/components/prefetch.js" "targetPath" "scripts/prefetch.js" "attributes" (dict "defer" true))}}
+    {{ if .Store.Get "hasObscure" }}
+    {{ partial "script.html" (dict "path" "scripts/components/obscure.js" "targetPath" "scripts/obscure.js" "attributes" (dict "defer" true))}}
+    {{- end }}
     {{- if .Store.Get "project" -}}
-    {{ partial "script.html" (dict "path" "scripts/vendor/lightgallery.js" "targetPath" "scripts/lightgallery.js")  "attribues" (dict "defer" true)}}
+    {{ partial "script.html" (dict "path" "scripts/vendor/lightgallery.js" "targetPath" "scripts/lightgallery.js")  "attributes" (dict "defer" true)}}
     {{end}}
     {{ if .Store.Get "hasForm" }}
     {{ partial "script.html" (dict "path" "scripts/vendor/bouncer.polyfills.js" "targetPath" "scripts/bouncer.js" "raw" true "attributes" (dict "defer" true))}}
@@ -44,7 +44,10 @@
     {{ if .Store.Get "hasThankYou" }}
     {{ partial "script.html" (dict "path" "scripts/components/thank-you.js" "targetPath" "scripts/thank-you.js") }}
     {{ end }}
-    {{ partial "script.html" (dict "path" "scripts/components/notice.js" "targetPath" "scripts/notice.js")  "attribues" (dict "defer" true)}}
+    {{ if .Store.Get "hasTracking" }}
+    {{ partial "script.html" (dict "path" "scripts/tracking/google.js" "targetPath" "scripts/tracking.js") "attributes" (dict "defer" true) }}
+    {{ end }}
+    {{ partial "script.html" (dict "path" "scripts/components/notice.js" "targetPath" "scripts/notice.js")  "attributes" (dict "defer" true)}}
   </body>
 {{- end -}}
 </html>
