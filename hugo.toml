@@ -64,10 +64,9 @@ enableGitInfo = true
       [markup.goldmark.renderHooks.link]
         enableDefault = true
 
-[minify]
-  [minify.tdewolff.html]
-    keepQuotes = true
-
+[security.funcs]
+  getenv = ['^HUGO_', '^GA_TRACKING_ID$', '^META_PIXEL_ID$']
+  
 [sitemap]
   filename = "sitemap"  # Remove .xml
   changefreq = "monthly"
