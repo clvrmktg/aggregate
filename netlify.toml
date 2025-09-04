@@ -1,13 +1,20 @@
 [build]
   publish = "public"
-  command = """\
-    curl -LJO https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
-    tar -xf dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
-    rm dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
-    export PATH=/opt/build/repo/dart-sass:$PATH && \
-    hugo --gc --minify \
-    """
-    
+  command = """
+    set -euo pipefail
+    : "${DART_SASS_EMBEDDED_VERSION:?Set DART_SASS_EMBEDDED_VERSION (e.g. 1.79.1)}"
+
+    curl -fsSL -o dse.tar.gz \
+      "https://github.com/sass/dart-sass-embedded/releases/download/${DART_SASS_EMBEDDED_VERSION}/dart-sass-embedded-${DART_SASS_EMBEDDED_VERSION}-linux-x64.tar.gz"
+
+    tar -xzf dse.tar.gz
+    rm dse.tar.gz
+
+    export PATH="$PWD/dart-sass-embedded:$PATH"
+
+    hugo --gc --minify
+  """
+
 [build.environment]
   HUGO_VERSION = "0.142.0"
   HUGO_ENV = "production"
