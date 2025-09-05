@@ -14,13 +14,6 @@ tags = ["asphalt paving", "infrastructure", "government project", "Berry Islands
   name = 'Ministry of Works and Family Island Affairs'
   location = 'Berry Islands, Bahamas'
 
-[[gallery]]
-
-  [gallery.image]
-    path = ''
-    alt = ''
-
-
 +++
 
 Abaco Aggregate & Cement, Ltd. is proud to partner with the Ministry of Works and Family Island Affairs on the ongoing road paving initiative in Central Pines, Abaco. This project is part of a broader effort to enhance local infrastructure and improve transportation safety for residents and visitors.
