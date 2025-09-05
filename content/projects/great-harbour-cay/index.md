@@ -1,7 +1,7 @@
 +++
 date = '2025-09-04T19:46:15-04:00'
 draft = false
-title = 'Great Harbour Key'
+title = 'Great Harbour Cay Road Improvement'
 description = "Supplying aggregate for road paving in Great Harbour Cay, Berry Islands. Abaco Aggregate & Cement delivers materials with safe, efficient marine logistics."
 categories = ["Road Paving", "Infrastructure Projects", "Government Works"]
 tags = ["asphalt paving", "infrastructure", "government project", "Berry Islands", "horizontal construction", "public works"]
