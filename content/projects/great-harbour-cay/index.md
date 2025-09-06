@@ -18,4 +18,4 @@ tags = ["asphalt paving", "infrastructure", "government project", "Berry Islands
 
 Abaco Aggregate & Cement is currently supplying aggregate for a major road paving project in Great Harbour Cay, Berry Islands. Our team is handling the loading, barge transport, and on-site delivery of materials to support critical road upgrades across the island.
 
-Working day and night, we’re coordinating heavy equipment, trucking, and marine logistics to ensure a steady flow of aggregate. This project underscores our role in infrastructure development and inter-island supply throughout The Bahamas.
+Working day and night, we're coordinating heavy equipment, trucking, and marine logistics to ensure a steady flow of aggregate. This project underscores our role in infrastructure development and inter-island supply throughout The Bahamas.
