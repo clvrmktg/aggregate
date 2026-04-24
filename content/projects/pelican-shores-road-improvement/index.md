@@ -7,7 +7,7 @@ categories = ["Road Paving", "Infrastructure Projects", "Abaco Projects", "Gover
 tags = ["asphalt paving", "Abaco", "government project", "infrastructure", "public works", "horizontal construction"]
 
 [hero]
-  image = 'pelican-shores-02.jpeg'
+  image = 'pelican-shores-02-1.jpeg'
   alt = 'Work from the Abaco Beach Resort Project'
 
 [client]

@@ -7,7 +7,7 @@ categories = ["Road Paving", "Infrastructure Projects", "Government Works", "Aba
 tags = ["asphalt paving", "treasure cay", "airport infrastructure", "government project", "infrastructure", "Abaco", "construction"]
 
 [hero]
-  image = 'treasure-cay-airport-road-paving-01.jpg'
+  image = 'treasure-cay-airport-road-paving-01-1.jpg'
   alt = 'Overview of Treasure Cay Airport runway road paving'
 
 [client]
