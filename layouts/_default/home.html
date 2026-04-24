@@ -3,7 +3,6 @@
 {{- end -}}
 {{- define "main" -}}
   {{- partial "partials/hero.html" . -}}
-  {{- $twic := .Site.Params.twic -}}
   <div class="[ full-width content-grid layout--spacing layout--padding--bottom ]">
     <section class="[ summary ][ grid layout--spacing text--center ]">
       <div>
@@ -17,15 +16,15 @@
         <li class="[ product ][ grid row-gap--1 text--center ]">
           <h3>{{ .name }}</h3>
           <p>{{ .description }}</p>
-          <figure class="[ ratio--16:9 ]">
-            {{ with $.Page.Resources.GetMatch .image.path }}
-            <picture id="product-{{ $counter }}" class="[ bg ]">
-              <style>#product-{{ $counter | safeCSS  }} {background-image: url('https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
-              <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="{{ $service.image.alt }}" width="{{ .Width }}" height="{{ .Height }}"/>
-              <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" alt="{{ $service.image.alt }}" width="{{ .Width }}" height="{{ .Height }}"/></noscript>
-            </picture>
-            {{ end }}
-          </figure>
+          {{ with $.Page.Resources.GetMatch .image.path }}
+            {{- partial "render-image.html" (dict
+              "page" $.Page
+              "resource" .
+              "alt" $service.image.alt
+              "figureClass" "[ ratio--16:9 ]"
+              "id" (printf "product-%d" $counter)
+            ) -}}
+          {{ end }}
         </li>
         {{ end }}
       </ul>
@@ -38,16 +37,16 @@
             {{ .Content }}
             <a class="[ btn btn--lg aac--gold ]" href="/who-we-are" data-prefetch>Learn More <span class="[ hidden ]">About Who We Are</span></a>
           </div>
-          <figure class="[ ratio--1:1 md:ratio--4:5 o--1 ]">
-            <picture id="snapshot" class="[ bg ]">
-              {{ $snapshot := .Params.snapshot }}
-              {{ with .Resources.GetMatch $snapshot.image }}
-              <style>#snapshot {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
-              <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="{{ $snapshot.alt }}" width="{{ .Width }}" height="{{ .Height }}"/>
-              <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/" alt="{{ $snapshot.alt }}" width="{{ .Width }}" height="{{ .Height }}"/></noscript>
-              {{ end }}
-            </picture>
-          </figure>
+          {{ $snapshot := .Params.snapshot }}
+          {{ with .Resources.GetMatch $snapshot.image }}
+            {{- partial "render-image.html" (dict
+              "page" $
+              "resource" .
+              "alt" $snapshot.alt
+              "figureClass" "[ ratio--1:1 md:ratio--4:5 o--1 ]"
+              "id" "snapshot"
+            ) -}}
+          {{ end }}
         </div>
       </div>
     </section>
@@ -62,14 +61,15 @@
           <h3 class="[ py--0.5 ]">{{ .Title }}</h3>
         </div>
         {{ $title := .Title }}
+        {{ $projectPage := . }}
         {{ with .Resources.GetMatch .Params.hero.image }}
-        <figure class="[ feature__img ][ ratio--1:1 lg:ratio--4:5 scale o--1 ]">
-          <picture id="project-{{ $counter }}" class="[ bg ]">
-            <style>#project-{{ $counter | safeCSS  }} {background-image: url('https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
-            <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" alt="Work from our {{ $title }} project" width="{{ .Width }}" height="{{ .Height }}"/>
-            <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" alt="Work from our {{ $title }} project" width="{{ .Width }}" height="{{ .Height }}"/></noscript>
-          </picture>
-        </figure>
+          {{- partial "render-image.html" (dict
+            "page" $projectPage
+            "resource" .
+            "alt" (printf "Work from our %s project" $title)
+            "figureClass" "[ feature__img ][ ratio--1:1 lg:ratio--4:5 scale o--1 ]"
+            "id" (printf "project-%d" $counter)
+          ) -}}
         {{ end }}
       </a>
       {{ end }}

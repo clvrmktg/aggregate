@@ -20,7 +20,7 @@ tags = [
 
 
 [hero]
-  image = 'black-point-exuma-002.jpg'
+  image = 'black-point-exuma-002-1.jpg'
   alt = ''
 
 [client]

@@ -1,15 +1,17 @@
         <!-- Images used to open the lightbox-->
         <ul class="[ grid sm:col--2 md:col--4 gap--2 layout--padding--bottom ]">
-          {{- $twic := .Site.Params.twic -}}
           {{ range $index, $image := .Resources.ByType "image" }}
           {{ $counter := add $index 1 }}
           <li class="[ thumb thumb--{{ $counter }} ]" thumbnail>
-            <figure class="[ thumbnail ][ ratio--1:1 scale ]">
-              <picture id="thumbnail-{{ $counter }}" class="[ bg ]">
-                <style>#thumbnail-{{ $counter | safeCSS }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
-                <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" width="720" height="720" alt=""/></picture>
-              <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" width="720" height="720" alt=""/></noscript>
-            </figure>
+            {{- partial "render-image.html" (dict
+              "page" $
+              "resource" .
+              "alt" ""
+              "figureClass" "[ thumbnail ][ ratio--1:1 scale ]"
+              "id" (printf "thumbnail-%d" $counter)
+              "width" 720
+              "height" 720
+            ) -}}
           </li>
           {{ end }}
         </ul>
@@ -38,12 +40,13 @@
             <div class="[ carousel ][ flex center middle relative py--5 ]">
               {{ range $index, $image := .Resources.ByType "image" }}
               {{ $counter := add $index 1 }}
-              <figure class="[ image image--{{ $counter }} ][ {{ if gt .Width .Height }}ratio--16:9{{else}}ratio--4:5{{end}} mx--auto ]">
-                <picture id="image-{{ $counter }}" class="[ bg ]">
-                  <style>#image-{{ $counter | safeCSS }} {background-image: url('https://{{ $twic }}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
-                  <img data-twic-src="image:{{ .RelPermalink }}" data-twic-focus="auto" width="{{ .Width }}" height="{{ .Height }}" alt=""/></picture>
-                <noscript><img class="[ script ]" src="https://{{ $twic }}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview" width="{{ .Width }}" height="{{ .Height }}" alt=""/></noscript>
-              </figure>
+              {{- partial "render-image.html" (dict
+                "page" $
+                "resource" .
+                "alt" ""
+                "figureClass" (printf "[ image image--%d ][ %s mx--auto ]" $counter (cond (gt .Width .Height) "ratio--16:9" "ratio--4:5"))
+                "id" (printf "image-%d" $counter)
+              ) -}}
               {{ end }}
             </div>
           </div>

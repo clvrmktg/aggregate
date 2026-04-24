@@ -29,7 +29,7 @@ tags = [
 
 [[gallery]]
   [image]
-    path = 'abaco-beach-resort-002'
+    path = 'abaco-beach-resort-002.jpg'
     alt = ''
 
 +++

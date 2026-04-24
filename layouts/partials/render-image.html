@@ -1,0 +1,64 @@
+{{- $resource := .resource -}}
+{{- $destination := .destination -}}
+{{- $alt := .alt | default "Image" -}}
+{{- $title := .title -}}
+{{- $figureClass := .figureClass | default "[ pb--1 ]" -}}
+{{- $pictureClass := .pictureClass | default "[ bg ]" -}}
+{{- $id := .id | default (printf "picture-%s" ((now.UnixNano | string) | md5)) -}}
+{{- $preview := .preview -}}
+{{- $width := .width -}}
+{{- $height := .height -}}
+{{- $destinationPath := "" -}}
+{{- $twic := .page.Site.Params.twic -}}
+
+{{- with $destination -}}
+  {{- $destinationPath = replaceRE "^/+" "" . -}}
+{{- end -}}
+
+{{- if not $resource -}}
+  {{- with $destinationPath -}}
+    {{- $resource = resources.Get (printf "uploads/%s" (. | safeURL)) -}}
+  {{- end -}}
+{{- end -}}
+
+<figure class="{{ $figureClass }}">
+  <picture id="{{ $id }}" class="{{ $pictureClass }}">
+    {{- if $resource -}}
+      {{- if not $width -}}
+        {{- $width = $resource.Width -}}
+      {{- end -}}
+      {{- if not $height -}}
+        {{- $height = $resource.Height -}}
+      {{- end -}}
+      <style>#{{ $id | safeCSS }} {background-image: url('https://{{ $twic }}.twic.pics{{ $resource.RelPermalink }}?twic=v1/output=preview');}</style>
+      <img
+        data-twic-src="image:{{ $resource.RelPermalink }}"
+        {{- with $preview }}
+          data-twic-preview="image:{{ $resource.RelPermalink }}"
+        {{- end }}
+        data-twic-focus="auto"
+        alt="{{ $alt }}"
+        width="{{ $width }}"
+        height="{{ $height }}"
+      />
+      <noscript>
+        <img
+          class="[ script ]"
+          src="https://{{ $twic }}.twic.pics{{ $resource.RelPermalink }}?twic=v1/output=preview"
+          alt="{{ $alt }}"
+          width="{{ $width }}"
+          height="{{ $height }}"
+        />
+      </noscript>
+    {{- else if $destinationPath -}}
+      <img
+        src="https://{{ $twic }}.twic.pics/{{ $destinationPath | safeURL }}?twic=v1/focus=auto/"
+        alt="{{ $alt }}"
+      />
+    {{- end -}}
+  </picture>
+
+  {{- with $title }}
+    <figcaption class="[ pt--0.5 ]">{{ . }}</figcaption>
+  {{- end -}}
+</figure>

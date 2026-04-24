@@ -7,7 +7,7 @@
   {{- $twic := .Site.Params.twic -}}
   {{ with .Resources.GetMatch (.Params.hero.image) }}
   <div class="[ hero__background ][ full-width bg ]" data-twic-background="url(image:{{ .RelPermalink }})">
-    <style>.hero__background {background-image: url('https://{{- $twic -}}.twic.pics/{{ .RelPermalink }}?twic=v1/output=preview');}</style>
+    <style>.hero__background {background-image: url('https://{{- $twic -}}.twic.pics{{ .RelPermalink }}?twic=v1/output=preview');}</style>
   </div>
   {{ end }}
   <div class="[ wrapper wrapper--subpage ][ full-width content-grid ]">
