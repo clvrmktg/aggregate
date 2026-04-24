@@ -24,7 +24,7 @@ description = "Abaco Aggregate & Cement Ltd. is a leading supplier of concrete, 
     name = 'Debris Management'
     description = 'Targeted cleanup and removal of hurricane debris, construction rubble, and site waste—delivered with speed, safety, and environmental responsibility.'
     [services.service.image]
-      path = 'hurricane-dorian-abaco-bahamas.jpg'
+      path = 'hurricane-dorian-abaco-bahamas-001.jpg'
       alt = 'Hurricane Dorian debris in Abaco'
 
 [snapshot]
