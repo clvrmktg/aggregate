@@ -4,7 +4,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
   X-Permitted-Cross-Domain-Policies: none
-  Permissions-Policy: accelerometer=(self), autoplay=(self), camera=(self), encrypted-media=(self), fullscreen=(self), geolocation=(self), gyroscope=(self), magnetometer=(self), microphone=(self), midi=(self), payment=(self), publickey-credentials-get=(self), sync-xhr=(self), usb=(self), xr-spatial-tracking=(self)
+  Permissions-Policy: accelerometer=(self "https://www.youtube-nocookie.com"), autoplay=(self "https://www.youtube-nocookie.com"), camera=(self), encrypted-media=(self "https://www.youtube-nocookie.com"), fullscreen=(self "https://www.youtube-nocookie.com"), geolocation=(self), gyroscope=(self "https://www.youtube-nocookie.com"), magnetometer=(self), microphone=(self), midi=(self), payment=(self), picture-in-picture=(self "https://www.youtube-nocookie.com"), publickey-credentials-get=(self), sync-xhr=(self), usb=(self), xr-spatial-tracking=(self)
   # Content-Security-Policy: default-src 'none';
   # Content-Security-Policy: script-src 'strict-dynamic' 'unsafe-inline' 'self' https://jsphpndr.twic.pics;
   # Content-Security-Policy: style-src 'strict-dynamic' 'unsafe-inline' 'self' https:;
