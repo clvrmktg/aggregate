@@ -14,6 +14,12 @@ tags = ["asphalt paving", "treasure cay", "airport infrastructure", "government 
   name = 'Ministry of Works and Family Island Affairs'
   location = 'Treasure Cay, Abaco'
 
+[[videos]]
+  id = 'IgIRqY17Vsk'
+  url = 'https://www.youtube.com/shorts/IgIRqY17Vsk'
+  title = 'Treasure Cay Airport Runway Paving'
+  short = true
+
 # [[gallery]]
 
 #   [gallery.image]

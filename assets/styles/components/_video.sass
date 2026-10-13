@@ -1,0 +1,21 @@
+@use '../abstracts' as *
+
+.video-grid
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, #{em(280)}), 1fr))
+
+.video-card
+  display: grid
+  gap: em(8)
+  margin: 0
+
+  lite-youtube
+    max-width: em(720)
+
+  &--short
+    max-width: em(405)
+
+    lite-youtube
+      --lite-youtube-aspect-ratio: 9 / 16
+
+  figcaption
+    font-weight: 700

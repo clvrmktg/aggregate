@@ -1,0 +1,24 @@
+{{- with .Params.videos -}}
+  {{- $.Store.Set "hasYouTube" true -}}
+  <section class="[ project-videos ][ full-width content-grid layout--padding--bottom ]" aria-labelledby="project-videos-heading">
+    <div class="[ grid gap--2 ]">
+      <h2 id="project-videos-heading" class="[ font--2 ]">Video</h2>
+      <div class="[ video-grid ][ grid gap--2 ]">
+        {{- range . -}}
+          <figure class="[ video-card{{ if .short }} video-card--short{{ end }} ]">
+            <lite-youtube
+              videoid="{{ .id }}"
+              videotitle="{{ .title }}"
+              videoplay="Play video: {{ .title }}"
+              nocookie
+              autopause
+              {{- if .short }} short{{ end }}>
+              <a class="lite-youtube-fallback" href="{{ .url }}">Watch “{{ .title }}” on YouTube</a>
+            </lite-youtube>
+            <figcaption>{{ .title }}</figcaption>
+          </figure>
+        {{- end -}}
+      </div>
+    </div>
+  </section>
+{{- end -}}

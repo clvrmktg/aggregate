@@ -27,6 +27,12 @@ tags = [
   name = 'Ministry of Works and Family Island Affairs'
   location = 'Black Point, Exuma Cays'
 
+[[videos]]
+  id = 'Ywqr_25Cjlo'
+  url = 'https://www.youtube.com/shorts/Ywqr_25Cjlo'
+  title = '$17.96M Black Point Airport Expansion'
+  short = true
+
 # [[gallery]]
 
 #   [gallery.image]

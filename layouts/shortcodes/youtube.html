@@ -1,10 +1,13 @@
 {{ $url := .Get "url" }}
-{{ $regex := `(?:youtube\.com/(?:watch\?v=|embed/|v/)|youtu\.be/)([a-zA-Z0-9_-]{11})` }}
+{{ $regex := `(?:youtube\.com/(?:watch\?v=|embed/|v/|shorts/)|youtu\.be/)([a-zA-Z0-9_-]{11})` }}
 {{ $match := findRE $regex $url }}
 
 {{ if $match }}
   {{ $videoID := index $match 0 | replaceRE $regex "$1" }}
-  <lite-youtube videoid="{{ $videoID }}" {{ if .Get "title" }}videotitle="{{ .Get "title" }}"{{ end }}></lite-youtube>
+  {{ $title := .Get "title" | default "YouTube video" }}
+  <lite-youtube videoid="{{ $videoID }}" videotitle="{{ $title }}" videoplay="Play video: {{ $title }}" nocookie{{ if in $url "/shorts/" }} short{{ end }}>
+    <a class="lite-youtube-fallback" href="{{ $url }}">Watch “{{ $title }}” on YouTube</a>
+  </lite-youtube>
 {{ else }}
   <p>Invalid YouTube URL</p>
 {{ end }}
