@@ -1,6 +1,7 @@
+        {{- $images := .Resources.ByType "image" -}}
         <!-- Images used to open the lightbox-->
         <ul class="[ grid sm:col--2 md:col--4 gap--2 layout--padding--bottom ]">
-          {{ range $index, $image := .Resources.ByType "image" }}
+          {{ range $index, $image := $images }}
           {{ $counter := add $index 1 }}
           <li class="[ thumb thumb--{{ $counter }} ]" thumbnail>
             {{- partial "render-image.html" (dict
@@ -25,20 +26,20 @@
                 <span class="hidden">Close</span>
               </button>
             </div>
-            <button class="[ icon arrow arrow--left ][ flex center middle ]" id="prev">
+            <button class="[ icon arrow arrow--left ][ flex center middle ]" id="prev"{{ if le (len $images) 1 }} hidden{{ end }}>
               <span class="[ icon--arrow icon--arrow--left ]">
                 {{- readFile "static/icons/arrow-left.svg" | safeHTML }}
               </span>
               <span class="[ hidden ]">Previous</span>
             </button>
-            <button class="[ icon arrow arrow--right ][ flex center middle ]" id="next">
+            <button class="[ icon arrow arrow--right ][ flex center middle ]" id="next"{{ if le (len $images) 1 }} hidden{{ end }}>
               <span class="[ icon--arrow icon--arrow--right ]">
                 {{- readFile "static/icons/arrow-right.svg" | safeHTML }}
               </span>
               <span class="[ hidden ]">Next</span>
             </button>
             <div class="[ carousel ][ flex center middle relative py--5 ]">
-              {{ range $index, $image := .Resources.ByType "image" }}
+              {{ range $index, $image := $images }}
               {{ $counter := add $index 1 }}
               {{- partial "render-image.html" (dict
                 "page" $
