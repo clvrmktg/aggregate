@@ -14,6 +14,9 @@ enableGitInfo = true
   error = true
   maintenance = false
 
+  [params.social]
+    youtube = "https://www.youtube.com/@abacoaggregate"
+
 [taxonomies]
   category = "categories"
   tag = "tags"

@@ -9,16 +9,10 @@
     "publisher": {
       "@type": "Organization",
       "name": "{{ .Site.Title }}",
-      "url": "{{ .Permalink }}"
-      // {{- with .Site.Params.social }}
-      // ,"sameAs": [
-      //   {{- with .facebook }}"https://www.facebook.com/{{ . }}",{{ end }}
-      //   {{- with .instagram }}"https://www.instagram.com/{{ . }}",{{ end }}
-      //   {{- with .linkedin }}"https://www.linkedin.com/in/{{ . }}",{{ end }}
-      //   {{- with .github }}"https://github.com/{{ . }}",{{ end }}
-      //   {{- with .x }}"https://x.com/{{ . }}"{{ end }}
-      // ]
-      // {{- end }}
+      "url": "{{ .Permalink }}",
+      "sameAs": [
+        {{ .Site.Params.social.youtube | jsonify | safeJS }}
+      ]
     }
   }
 </script>

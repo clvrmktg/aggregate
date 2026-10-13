@@ -28,7 +28,8 @@
     "description": {{ .Description }},
     "publisher": {
       "@type": "Organization",
-      "name": {{ .Site.Title }}
+      "name": {{ .Site.Title }},
+      "sameAs": [{{ .Site.Params.social.youtube | jsonify | safeJS }}]
     },
     "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
   },
@@ -44,7 +45,8 @@
     "dateModified": {{ (.Lastmod | default .Date) | time.Format $iso }},
     "author": {
       "@type": "Organization",
-      "name": {{ .Site.Title }}
+      "name": {{ .Site.Title }},
+      "sameAs": [{{ .Site.Params.social.youtube | jsonify | safeJS }}]
     },
     "image": {
       "@type": "ImageObject",
@@ -62,7 +64,8 @@
       "publisher": {
         "@type": "Organization",
         "@id": {{ .Site.BaseURL }},
-        "name": {{ .Site.Title }}
+        "name": {{ .Site.Title }},
+        "sameAs": [{{ .Site.Params.social.youtube | jsonify | safeJS }}]
       }
       
     },
