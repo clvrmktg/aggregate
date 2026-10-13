@@ -1,14 +1,24 @@
 {{- $iso := "2006-01-02T15:04:05Z07:00" -}}
+{{- $isProject := and .IsPage (eq .Section "projects") -}}
 {{- $feature := .Params.feature -}}
-{{- $image := $feature.image | default .Site.Params.share -}}
-{{- $alt := $feature.alt | default "Default share image of {{ .Site.Title }}'s logo" -}}
+{{- $hero := .Params.hero -}}
+{{- $image := $hero.image | default $feature.image | default .Site.Params.share -}}
+{{- $imageWidth := 1200 -}}
+{{- $imageHeight := 1200 -}}
+{{- with .Resources.GetMatch $image -}}
+  {{- $imageWidth = .Width -}}
+  {{- $imageHeight = .Height -}}
+{{- end -}}
+{{- with .Resources.GetMatch $image -}}
+  {{- $image = .Permalink -}}
+{{- end -}}
 {{- $tag := .Params.tags | default (slice) -}} 
 {{- $category := .Params.categories | default (slice) -}} 
 {{- $hasTags := gt (len $tag) 0 -}}            
 {{- $hasCategories := gt (len $category) 0 -}}
 
 
-{{- if .Params.post -}}
+{{- if or .Params.post $isProject -}}
 <script type="application/ld+json">
 [
   {
@@ -17,71 +27,54 @@
     "name": "{{ .Title }}",
     "description": {{ .Description }},
     "publisher": {
-      "@type": "Person",
+      "@type": "Organization",
       "name": {{ .Site.Title }}
     },
     "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
   },
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": {{ cond $isProject "Article" "BlogPosting" }},
     "@id": {{ .Permalink }},
     "mainEntityOfPage": {{ .Permalink }},
     "headline": {{ .Title }},
     "name": {{ .Title }},
     "description": {{ .Description }},
-    "datePublished": "{{ .Date.Format $iso }}",
+    "datePublished": "{{ (.PublishDate | default .Date).Format $iso }}",
     "dateModified": {{ (.Lastmod | default .Date) | time.Format $iso }},
     "author": {
-      "@type": "Person",
+      "@type": "Organization",
       "name": {{ .Site.Title }}
     },
     "image": {
       "@type": "ImageObject",
       "url": {{ $image | absURL }},
-      "width": 1200,
-      "height": 1200
+      "width": {{ $imageWidth }},
+      "height": {{ $imageHeight }}
     },
     "url": {{ .Permalink }},
     "isPartOf": {
-      "@type": "Blog",
+      "@type": {{ cond $isProject "CollectionPage" "Blog" }},
       {{ with .Parent }}
-      "@id": {{ .RelPermalink }},
+      "@id": {{ .Permalink }},
       "name": {{ .Title }},
       {{ end }}
       "publisher": {
-        "@type": "Person",
+        "@type": "Organization",
         "@id": {{ .Site.BaseURL }},
-        "name": {{ .Site.Title }},
-        {{- with .Site.Params.social -}}
-        "sameAs": [
-          {{- with .facebook }}"https://www.facebook.com/{{ . }}",{{ end }}
-          {{- with .instagram }}"https://www.instagram.com/{{ . }}",{{ end }}
-          {{- with .linkedin }}"https://www.linkedin.com/in/{{ . }}",{{ end }}
-          {{- with .github }}"https://github.com/{{ . }}",{{ end }}
-          {{- with .x }}"https://x.com/{{ . }}"{{ end }}
-        ]
-        {{- end -}}
+        "name": {{ .Site.Title }}
       }
       
     },
     "wordCount": "{{ .WordCount }}"
     {{- if or $hasTags $hasCategories }},{{ end }}  
     {{- if $hasTags }}
-    "keywords": [
-      {{- range $index, $tag -}}
-        {{- if $index }}, {{ end }}"{{ . }}"
-      {{- end }}
-    ]
+    "keywords": {{ $tag | jsonify | safeJS }}
     {{- if $hasCategories }},{{ end }}  
     {{- end }}
 
     {{- if $hasCategories }}
-    "articleSection": [
-      {{- range $index, $category -}}
-        {{- if $index }}, {{ end }}"{{ . }}"
-      {{- end }}
-    ]
+    "articleSection": {{ $category | jsonify | safeJS }}
     {{- end }}
 
   }
