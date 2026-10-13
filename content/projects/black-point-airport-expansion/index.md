@@ -20,8 +20,8 @@ tags = [
 
 
 [hero]
-  image = 'black-point-exuma-002-1.jpg'
-  alt = ''
+  image = 'black-point-airport-works-01-runway-compaction.jpg'
+  alt = 'Road roller compacting the runway base during the Black Point Airport expansion in Exuma.'
 
 [client]
   name = 'Ministry of Works and Family Island Affairs'
