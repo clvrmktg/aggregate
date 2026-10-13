@@ -40,6 +40,9 @@
     {{- if or (.Store.Get "hasYouTube") .Params.videos -}}
     {{ partial "script.html" (dict "path" "scripts/vendor/lite-youtube.js" "targetPath" "scripts/lite-youtube.js" "attributes" (dict "defer" true "module" true))}}
     {{- end }}
+    {{- with .Params.videos -}}
+    {{ partial "script.html" (dict "path" "scripts/components/video-lightbox.js" "targetPath" "scripts/video-lightbox.js" "attributes" (dict "defer" true))}}
+    {{- end }}
     {{ if .Store.Get "hasForm" }}
     {{ partial "script.html" (dict "path" "scripts/vendor/bouncer.polyfills.js" "targetPath" "scripts/bouncer.js" "raw" true "attributes" (dict "defer" true))}}
     {{ partial "script.html" (dict "path" "scripts/components/validate.js" "targetPath" "scripts/validate.js") }}

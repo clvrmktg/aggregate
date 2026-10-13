@@ -1,11 +1,10 @@
 @use '../abstracts' as *
 
-[data-lightbox-modal]
+#modal
   display: none
   fill: color('aac-gold')
 
 .thumb
-  width: 100%
   cursor: pointer
   +transition(box-shadow)
 
@@ -34,9 +33,7 @@
       max-height: inherit
       position: inherit
 
-.photo-slide
-  width: 100%
-  height: 100%
+.carousel
 
   > .ratio--16\:9
     width: 100%

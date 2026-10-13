@@ -1,10 +1,8 @@
-      <div data-lightbox>
         <!-- Images used to open the lightbox-->
         <ul class="[ grid sm:col--2 md:col--4 gap--2 layout--padding--bottom ]">
           {{ range $index, $image := .Resources.ByType "image" }}
           {{ $counter := add $index 1 }}
-          <li>
-            <button class="[ thumb thumb--{{ $counter }} ]" type="button" data-lightbox-trigger aria-label="Open project photo {{ $counter }}">
+          <li class="[ thumb thumb--{{ $counter }} ]" thumbnail>
             {{- partial "render-image.html" (dict
               "page" $
               "resource" .
@@ -14,27 +12,26 @@
               "width" 720
               "height" 720
             ) -}}
-            </button>
           </li>
           {{ end }}
         </ul>
-        <div class="[ gallery ]" data-lightbox-modal aria-hidden="true" aria-label="Photo gallery" role="dialog" aria-modal="true">
+        <div class="[ gallery ]" id="modal" aria-hidden="true" aria-label="Photo Gallery">
           <div class="[ wrapper ][ relative ]">
             <div class="[ close ][ flex end ]">
-              <button class="[ icon ][ flex center middle ]" type="button" data-lightbox-close>
+              <button class="[ icon ][ flex center middle ]" id="close">
                 <span class="[ icon--close ]">
                   {{- readFile "static/icons/close.svg" | safeHTML }}
                 </span>
                 <span class="hidden">Close</span>
               </button>
             </div>
-            <button class="[ icon arrow arrow--left ][ flex center middle ]" type="button" data-lightbox-previous>
+            <button class="[ icon arrow arrow--left ][ flex center middle ]" id="prev">
               <span class="[ icon--arrow icon--arrow--left ]">
                 {{- readFile "static/icons/arrow-left.svg" | safeHTML }}
               </span>
               <span class="[ hidden ]">Previous</span>
             </button>
-            <button class="[ icon arrow arrow--right ][ flex center middle ]" type="button" data-lightbox-next>
+            <button class="[ icon arrow arrow--right ][ flex center middle ]" id="next">
               <span class="[ icon--arrow icon--arrow--right ]">
                 {{- readFile "static/icons/arrow-right.svg" | safeHTML }}
               </span>
@@ -43,7 +40,6 @@
             <div class="[ carousel ][ flex center middle relative py--5 ]">
               {{ range $index, $image := .Resources.ByType "image" }}
               {{ $counter := add $index 1 }}
-              <div class="[ photo-slide ][ flex center middle ]" data-lightbox-slide>
               {{- partial "render-image.html" (dict
                 "page" $
                 "resource" .
@@ -51,9 +47,7 @@
                 "figureClass" (printf "[ image image--%d ][ %s mx--auto ]" $counter (cond (gt .Width .Height) "ratio--16:9" "ratio--4:5"))
                 "id" (printf "image-%d" $counter)
               ) -}}
-              </div>
               {{ end }}
             </div>
           </div>
         </div>
-      </div>
