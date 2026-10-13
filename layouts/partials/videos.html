@@ -1,23 +1,46 @@
 {{- with .Params.videos -}}
   {{- $.Store.Set "hasYouTube" true -}}
   <section class="[ project-videos ][ full-width content-grid layout--padding--bottom ]" aria-labelledby="project-videos-heading">
-    <div class="[ grid gap--2 ]">
+    <div class="[ grid gap--2 ]" data-lightbox>
       <h2 id="project-videos-heading" class="[ font--2 ]">Video</h2>
-      <div class="[ video-grid ][ grid gap--2 ]">
+      <ul class="[ video-grid ][ grid gap--2 ]">
         {{- range . -}}
-          <figure class="[ video-card{{ if .short }} video-card--short{{ end }} ]">
-            <lite-youtube
-              videoid="{{ .id }}"
-              videotitle="{{ .title }}"
-              videoplay="Play video: {{ .title }}"
-              nocookie
-              autopause
-              {{- if .short }} short{{ end }}>
-              <a class="lite-youtube-fallback" href="{{ .url }}">Watch “{{ .title }}” on YouTube</a>
-            </lite-youtube>
-            <figcaption>{{ .title }}</figcaption>
-          </figure>
+          <li>
+            <button class="[ video-thumbnail ]" type="button" data-lightbox-trigger aria-label="Play video: {{ .title }}">
+              <img src="https://i.ytimg.com/vi/{{ .id }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+              <span class="video-thumbnail__play" aria-hidden="true"></span>
+              <span class="video-thumbnail__title">{{ .title }}</span>
+            </button>
+          </li>
         {{- end -}}
+      </ul>
+      <div class="[ gallery video-gallery ]" data-lightbox-modal aria-hidden="true" aria-label="Video gallery" role="dialog" aria-modal="true">
+        <div class="[ wrapper ][ relative ]">
+          <div class="[ close ][ flex end ]">
+            <button class="[ icon ][ flex center middle ]" type="button" data-lightbox-close>
+              <span class="[ icon--close ]">{{- readFile "static/icons/close.svg" | safeHTML }}</span>
+              <span class="hidden">Close</span>
+            </button>
+          </div>
+          <button class="[ icon arrow arrow--left ][ flex center middle ]" type="button" data-lightbox-previous>
+            <span class="[ icon--arrow icon--arrow--left ]">{{- readFile "static/icons/arrow-left.svg" | safeHTML }}</span>
+            <span class="hidden">Previous</span>
+          </button>
+          <button class="[ icon arrow arrow--right ][ flex center middle ]" type="button" data-lightbox-next>
+            <span class="[ icon--arrow icon--arrow--right ]">{{- readFile "static/icons/arrow-right.svg" | safeHTML }}</span>
+            <span class="hidden">Next</span>
+          </button>
+          <div class="[ carousel video-carousel ][ flex center middle relative py--5 ]">
+            {{- range . -}}
+              <figure class="[ video-slide{{ if .short }} video-slide--short{{ end }} ]" data-lightbox-slide>
+                <lite-youtube videoid="{{ .id }}" videotitle="{{ .title }}" videoplay="Play video: {{ .title }}" nocookie autopause{{ if .short }} short{{ end }}>
+                  <a class="lite-youtube-fallback" href="{{ .url }}">Watch “{{ .title }}” on YouTube</a>
+                </lite-youtube>
+                <figcaption>{{ .title }}</figcaption>
+              </figure>
+            {{- end -}}
+          </div>
+        </div>
       </div>
     </div>
   </section>

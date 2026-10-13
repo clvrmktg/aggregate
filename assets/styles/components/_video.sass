@@ -1,21 +1,68 @@
 @use '../abstracts' as *
 
 .video-grid
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, #{em(280)}), 1fr))
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, #{em(220)}), #{em(280)}))
 
-.video-card
-  display: grid
-  gap: em(8)
+.video-thumbnail
+  width: 100%
+  color: color('white')
+  background-color: color('black')
+  box-shadow: 0 em(2) em(5) rgba(0, 0, 0, .2)
+  position: relative
+  overflow: hidden
+  text-align: left
+  +transition((box-shadow, scale))
+
+  > img
+    width: 100%
+    aspect-ratio: 16 / 9
+    object-fit: cover
+
+  +hover
+    scale: 1.02
+    box-shadow: 0 em(5) em(12) rgba(0, 0, 0, .3)
+
+  &__play
+    width: em(68)
+    height: em(48)
+    background-color: red
+    border-radius: 14%
+    position: absolute
+    top: 42%
+    left: 50%
+    translate: -50% -50%
+
+    &::after
+      content: ''
+      border-style: solid
+      border-width: em(9) 0 em(9) em(16)
+      border-color: transparent transparent transparent white
+      position: absolute
+      top: 50%
+      left: 52%
+      translate: -50% -50%
+
+  &__title
+    display: block
+    min-height: em(56)
+    padding: em(12)
+    font-weight: 700
+
+.video-carousel
+  padding-inline: em(64)
+
+.video-slide
+  width: min(#{em(720)}, 100%)
   margin: 0
 
-  lite-youtube
-    max-width: em(720)
-
   &--short
-    max-width: em(405)
+    width: min(#{em(405)}, 100%)
 
     lite-youtube
       --lite-youtube-aspect-ratio: 9 / 16
 
   figcaption
+    color: color('white')
+    padding-top: em(8)
     font-weight: 700
+    text-align: center
