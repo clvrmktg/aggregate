@@ -41,11 +41,14 @@
             <div class="[ carousel ][ flex center middle relative py--5 ]">
               {{ range $index, $image := $images }}
               {{ $counter := add $index 1 }}
+              {{ $landscape := gt .Width .Height }}
+              {{ $orientation := cond $landscape "landscape" "portrait" }}
+              {{ $ratio := cond $landscape "ratio--16:9" "ratio--4:5" }}
               {{- partial "render-image.html" (dict
                 "page" $
                 "resource" .
                 "alt" ""
-                "figureClass" (printf "[ image image--%d gallery-image--%s ][ mx--auto ]" $counter (cond (gt .Width .Height) "landscape" "portrait"))
+                "figureClass" (printf "[ image image--%d gallery-image--%s ][ %s mx--auto ]" $counter $orientation $ratio)
                 "id" (printf "image-%d" $counter)
               ) -}}
               {{ end }}
