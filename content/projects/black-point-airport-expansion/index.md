@@ -28,10 +28,17 @@ tags = [
   location = 'Black Point, Exuma Cays'
 
 [[videos]]
-  id = 'Ywqr_25Cjlo'
-  url = 'https://www.youtube.com/shorts/Ywqr_25Cjlo'
-  title = '$17.96M Black Point Airport Expansion'
-  published = '2025-07-29T16:23:00Z'
+  id = 'L9QCtEm-3xw'
+  url = 'https://www.youtube.com/shorts/L9QCtEm-3xw'
+  title = 'Black Point Airport Expansion Site Overview | Abaco Aggregate (AAC)'
+  published = '2026-10-13T08:54:06Z'
+  short = true
+
+[[videos]]
+  id = 'oFunk-K5nhU'
+  url = 'https://www.youtube.com/shorts/oFunk-K5nhU'
+  title = 'Water Truck in Action at Black Point Airport | Abaco Aggregate (AAC)'
+  published = '2026-10-13T08:53:50Z'
   short = true
 
 [[videos]]
@@ -39,6 +46,13 @@ tags = [
   url = 'https://www.youtube.com/shorts/L2SvZKO3d0I'
   title = 'Road Roller in Action | Airport Expansion | Blackpoint, Exuma'
   published = '2026-10-13T08:10:54Z'
+  short = true
+
+[[videos]]
+  id = 'Ywqr_25Cjlo'
+  url = 'https://www.youtube.com/shorts/Ywqr_25Cjlo'
+  title = '$17.96M Black Point Airport Expansion'
+  published = '2025-07-29T16:23:00Z'
   short = true
 
 # [[gallery]]
