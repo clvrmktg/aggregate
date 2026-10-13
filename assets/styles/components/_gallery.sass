@@ -61,6 +61,22 @@
         max-height: 100%
         object-fit: contain
 
+  > .gallery-image--landscape
+
+    > picture
+
+      > img, > noscript > img
+        width: 100%
+        height: auto
+
+  > .gallery-image--portrait
+
+    > picture
+
+      > img, > noscript > img
+        width: auto
+        height: 100%
+
 .close
   position: absolute
   top: 2em
