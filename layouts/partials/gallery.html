@@ -45,7 +45,7 @@
                 "page" $
                 "resource" .
                 "alt" ""
-                "figureClass" (printf "[ image image--%d ][ %s mx--auto ]" $counter (cond (gt .Width .Height) "ratio--16:9" "ratio--4:5"))
+                "figureClass" (printf "[ image image--%d ][ mx--auto ]" $counter)
                 "id" (printf "image-%d" $counter)
               ) -}}
               {{ end }}
