@@ -97,4 +97,7 @@
 </article>
 {{ partial "gallery.html" . }}
 {{ partial "videos.html" . }}
+<footer class="[ project-meta ][ layout--padding--bottom ]">
+  <p><small>Last modified: <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "January 2, 2006" }}</time></small></p>
+</footer>
 {{- end -}}
