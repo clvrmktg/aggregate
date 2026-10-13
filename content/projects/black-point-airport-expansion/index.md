@@ -31,12 +31,14 @@ tags = [
   id = 'Ywqr_25Cjlo'
   url = 'https://www.youtube.com/shorts/Ywqr_25Cjlo'
   title = '$17.96M Black Point Airport Expansion'
+  published = '2025-07-29T16:23:00Z'
   short = true
 
 [[videos]]
   id = 'L2SvZKO3d0I'
   url = 'https://www.youtube.com/shorts/L2SvZKO3d0I'
   title = 'Road Roller in Action | Airport Expansion | Blackpoint, Exuma'
+  published = '2026-10-13T08:10:54Z'
   short = true
 
 # [[gallery]]

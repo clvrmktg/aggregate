@@ -4,7 +4,7 @@
     <div class="[ grid gap--2 ]" data-video-lightbox>
       <h2 id="project-videos-heading" class="[ font--2 ]">Video</h2>
       <ul class="[ video-grid ][ grid gap--2 ]">
-        {{- range . -}}
+        {{- range sort . "published" "desc" -}}
           <li>
             <button class="[ video-thumbnail ]" type="button" data-video-lightbox-trigger aria-label="Play video: {{ .title }}">
               <img src="https://i.ytimg.com/vi/{{ .id }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
@@ -31,7 +31,7 @@
             <span class="hidden">Next</span>
           </button>
           <div class="[ carousel video-carousel ][ flex center middle relative py--5 ]">
-            {{- range . -}}
+            {{- range sort . "published" "desc" -}}
               <figure class="[ video-slide{{ if .short }} video-slide--short{{ end }} ]" data-video-lightbox-slide>
                 <lite-youtube videoid="{{ .id }}" videotitle="{{ .title }}" videoplay="Play video: {{ .title }}" nocookie autopause{{ if .short }} short{{ end }}>
                   <a class="lite-youtube-fallback" href="{{ .url }}">Watch “{{ .title }}” on YouTube</a>
